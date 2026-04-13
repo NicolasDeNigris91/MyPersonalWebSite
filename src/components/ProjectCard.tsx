@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, GitFork } from 'lucide-react';
+import { ExternalLink, GitBranch } from 'lucide-react';
 import type { Project } from '@/types';
 
 interface ProjectCardProps {
@@ -35,7 +35,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 className="text-mist hover:text-platinum transition-colors duration-200"
                 aria-label="View source code"
               >
-                <GitFork size={16} strokeWidth={1} />
+                <GitBranch size={16} strokeWidth={1} />
               </a>
             )}
             {project.href && (
