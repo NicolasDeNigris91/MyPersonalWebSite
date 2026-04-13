@@ -40,6 +40,14 @@ export default function RootLayout({
       className={`${cormorant.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body className="bg-obsidian text-platinum font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
+                     focus:px-6 focus:py-3 focus:bg-racing-green focus:text-pearl
+                     focus:font-sans focus:text-caption focus:tracking-luxury focus:uppercase"
+        >
+          Skip to content
+        </a>
         {children}
       </body>
     </html>

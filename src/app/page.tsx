@@ -4,7 +4,7 @@ import { Projects } from '@/components/Projects';
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <Hero />
       <Projects />
       <Experience />

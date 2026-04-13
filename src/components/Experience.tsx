@@ -1,16 +1,16 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Briefcase, GraduationCap, MapPin } from 'lucide-react';
 import { experienceData } from '@/data/experience';
 import type { ExperienceEntry } from '@/types';
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-const entryVariants = {
+const entryVariants: Variants = {
   hidden: { opacity: 0, x: -24 },
   visible: {
     opacity: 1,
@@ -33,7 +33,7 @@ function ExperienceEntryCard({ entry }: EntryProps) {
     >
       {/* Timeline spine */}
       <div className="relative flex flex-col items-center">
-        <div className="w-px flex-1 bg-mist group-first:mt-3" />
+        <div className="w-px flex-1 bg-mist" />
         <div className="absolute top-3 w-2 h-2 rounded-full bg-racing-green-lit ring-4 ring-obsidian" />
       </div>
 
@@ -65,8 +65,8 @@ function ExperienceEntryCard({ entry }: EntryProps) {
 
         {/* Highlights */}
         <ul className="space-y-2 mb-4">
-          {entry.highlights.map((highlight, i) => (
-            <li key={i} className="flex items-start gap-3">
+          {entry.highlights.map((highlight) => (
+            <li key={highlight} className="flex items-start gap-3">
               <span className="mt-2 w-1 h-1 rounded-full bg-gold-leaf flex-shrink-0" />
               <span className="font-sans text-body text-chrome">{highlight}</span>
             </li>

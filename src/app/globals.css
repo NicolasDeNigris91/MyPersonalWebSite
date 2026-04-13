@@ -19,12 +19,12 @@
   --font-family-mono:    var(--font-jetbrains), monospace;
 
   /* ─── Font Sizes (with line-height) ─────────────────── */
-  --font-size-display-xl: 5rem;
-  --font-size-display-lg: 3.5rem;
-  --font-size-display-md: 2rem;
-  --font-size-body-lg:    1.125rem;
-  --font-size-body:       1rem;
-  --font-size-caption:    0.75rem;
+  --font-size-display-xl: 5rem / 1.05;
+  --font-size-display-lg: 3.5rem / 1.1;
+  --font-size-display-md: 2rem / 1.2;
+  --font-size-body-lg:    1.125rem / 1.75;
+  --font-size-body:       1rem / 1.7;
+  --font-size-caption:    0.75rem / 1.5;
 
   /* ─── Letter Spacing ─────────────────────────────────── */
   --letter-spacing-luxury: 0.15em;

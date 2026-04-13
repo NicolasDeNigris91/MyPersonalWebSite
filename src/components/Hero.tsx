@@ -27,7 +27,7 @@ const lineReveal: Variants = {
   hidden: { scaleX: 0, originX: 0 },
   visible: {
     scaleX: 1,
-    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number], delay: 0.6 },
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
   },
 };
 
@@ -96,7 +96,8 @@ export function Hero() {
           <a
             href="#projects"
             className="font-sans text-caption tracking-luxury uppercase border border-platinum text-platinum
-                       px-8 py-3 hover:bg-platinum hover:text-obsidian transition-colors duration-300"
+                       px-8 py-3 hover:bg-platinum hover:text-obsidian transition-colors duration-300
+                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
           >
             View Work
           </a>
@@ -120,7 +121,7 @@ export function Hero() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ArrowDown size={16} strokeWidth={1} className="text-mist" />
+          <ArrowDown size={16} strokeWidth={1} className="text-mist" aria-hidden="true" />
         </motion.div>
       </motion.div>
     </section>
