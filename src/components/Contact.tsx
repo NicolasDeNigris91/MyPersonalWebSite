@@ -1,0 +1,110 @@
+'use client';
+
+import { motion, type Variants } from 'framer-motion';
+import { Mail, MapPin } from 'lucide-react';
+import { siteConfig } from '@/data/site';
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
+  },
+};
+
+export function Contact() {
+  return (
+    <section id="contact" className="px-8 md:px-16 lg:px-24 py-24 bg-graphite">
+      <motion.div
+        className="max-w-5xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ staggerChildren: 0.12 }}
+      >
+        {/* Section heading */}
+        <motion.div variants={fadeUp} className="mb-16">
+          <p className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+            Get in Touch
+          </p>
+          <h2 className="font-display text-display-lg text-pearl">
+            [Your Preferred Contact Heading — e.g. &ldquo;Let&rsquo;s Build Something&rdquo;]
+          </h2>
+          <div className="h-px bg-gold-leaf w-24 mt-4" />
+        </motion.div>
+
+        {/* Contact content */}
+        <div className="grid md:grid-cols-2 gap-16">
+          {/* Message */}
+          <motion.div variants={fadeUp}>
+            <p className="font-sans text-body-lg text-chrome leading-relaxed mb-8">
+              [Write a short personal invitation — e.g. &ldquo;I&rsquo;m always interested in hearing
+              about new opportunities, collaborations, or just connecting over shared interests.
+              Don&rsquo;t hesitate to reach out.&rdquo;]
+            </p>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="inline-flex items-center gap-3 font-sans text-caption tracking-luxury uppercase
+                         border border-platinum text-platinum px-8 py-3
+                         hover:bg-platinum hover:text-obsidian transition-colors duration-300
+                         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
+            >
+              <Mail size={14} strokeWidth={1} />
+              Send Email
+            </a>
+          </motion.div>
+
+          {/* Details */}
+          <motion.div variants={fadeUp} className="space-y-8">
+            <div>
+              <h3 className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+                Email
+              </h3>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="font-sans text-body text-pearl hover:text-gold-leaf transition-colors duration-300"
+              >
+                {siteConfig.email}
+              </a>
+            </div>
+
+            <div>
+              <h3 className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+                Location
+              </h3>
+              <p className="font-sans text-body text-chrome flex items-center gap-2">
+                <MapPin size={14} strokeWidth={1} className="text-mist" />
+                {siteConfig.location}
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+                Social
+              </h3>
+              <div className="flex flex-col gap-2">
+                <a
+                  href={siteConfig.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-body text-chrome hover:text-pearl transition-colors duration-300"
+                >
+                  GitHub ↗
+                </a>
+                <a
+                  href={siteConfig.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-body text-chrome hover:text-pearl transition-colors duration-300"
+                >
+                  LinkedIn ↗
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}

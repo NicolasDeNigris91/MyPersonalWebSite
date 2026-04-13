@@ -2,8 +2,8 @@
 
 import { motion, type Variants } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { siteConfig } from '@/data/site';
 
-// Animation variants — defined outside component for stable references
 const containerVariants: Variants = {
   hidden: {},
   visible: {
@@ -56,7 +56,7 @@ export function Hero() {
           variants={fadeSlideUp}
           className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-8"
         >
-          Portfolio — [YEAR]
+          Portfolio — {new Date().getFullYear()}
         </motion.p>
 
         {/* Name — display serif */}
@@ -64,7 +64,7 @@ export function Hero() {
           variants={fadeSlideUp}
           className="font-display text-display-xl text-pearl tracking-tight leading-none mb-4"
         >
-          [INSERT NAME HERE]
+          {siteConfig.name}
         </motion.h1>
 
         {/* Horizontal rule — animated draw */}
@@ -78,7 +78,7 @@ export function Hero() {
           variants={fadeSlideUp}
           className="font-display text-display-lg text-chrome font-light italic mb-10"
         >
-          [INSERT YOUR CRAFT/SPECIALTY]
+          {siteConfig.tagline}
         </motion.h2>
 
         {/* Lead paragraph */}
@@ -86,9 +86,9 @@ export function Hero() {
           variants={fadeSlideUp}
           className="font-sans text-body-lg text-chrome max-w-2xl leading-relaxed mb-16"
         >
-          [INSERT A 2–3 SENTENCE BIOGRAPHY. Describe what you build, what you care about,
-          and what makes your approach distinctive. Write with conviction — this is your
-          opening statement.]
+          [Write 2–3 sentences about yourself. What do you build? What drives you?
+          What makes your approach distinctive? This is your opening statement —
+          write with conviction.]
         </motion.p>
 
         {/* CTA row */}
