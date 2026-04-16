@@ -1,6 +1,6 @@
 # Nicolas De Nigris — Personal Portfolio
 
-Personal portfolio site. Aston Martin aesthetic — British luxury, understated power, precision engineering made visible.
+Personal portfolio site. Precision engineering made visible.
 
 ## Stack
 
