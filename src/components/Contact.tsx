@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { siteConfig } from '@/data/site';
 
 const fadeUp: Variants = {
@@ -29,7 +29,7 @@ export function Contact() {
             Get in Touch
           </p>
           <h2 className="font-display text-display-lg text-pearl">
-            [Your Preferred Contact Heading — e.g. &ldquo;Let&rsquo;s Build Something&rdquo;]
+            Let&rsquo;s Connect
           </h2>
           <div className="h-px bg-gold-leaf w-24 mt-4" />
         </motion.div>
@@ -39,9 +39,9 @@ export function Contact() {
           {/* Message */}
           <motion.div variants={fadeUp}>
             <p className="font-sans text-body-lg text-chrome leading-relaxed mb-8">
-              [Write a short personal invitation — e.g. &ldquo;I&rsquo;m always interested in hearing
-              about new opportunities, collaborations, or just connecting over shared interests.
-              Don&rsquo;t hesitate to reach out.&rdquo;]
+              Aberto a conectar com outros profissionais, explorar novas oportunidades
+              ou conversar sobre as últimas novidades em tecnologia e desenvolvimento
+              de software. Fique à vontade para entrar em contato.
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
@@ -66,6 +66,19 @@ export function Contact() {
                 className="font-sans text-body text-pearl hover:text-gold-leaf transition-colors duration-300"
               >
                 {siteConfig.email}
+              </a>
+            </div>
+
+            <div>
+              <h3 className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+                Phone
+              </h3>
+              <a
+                href={siteConfig.phoneLink}
+                className="font-sans text-body text-pearl hover:text-gold-leaf transition-colors duration-300 flex items-center gap-2"
+              >
+                <Phone size={14} strokeWidth={1} className="text-mist" />
+                {siteConfig.phone}
               </a>
             </div>
 

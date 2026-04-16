@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { siteConfig } from '@/data/site';
@@ -46,74 +47,91 @@ export function Hero() {
       <div className="absolute inset-y-0 left-8 md:left-16 lg:left-24 w-px bg-mist opacity-40" />
 
       <motion.div
-        className="max-w-5xl"
+        className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Eyebrow label */}
-        <motion.p
-          variants={fadeSlideUp}
-          className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-8"
-        >
-          Portfolio — {new Date().getFullYear()}
-        </motion.p>
+        {/* Left column — text */}
+        <div className="max-w-2xl order-last lg:order-first">
+          {/* Eyebrow label */}
+          <motion.p
+            variants={fadeSlideUp}
+            className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-8"
+          >
+            Portfolio — {new Date().getFullYear()}
+          </motion.p>
 
-        {/* Name — display serif */}
-        <motion.h1
-          variants={fadeSlideUp}
-          className="font-display text-display-xl text-pearl tracking-tight leading-none mb-4"
-        >
-          {siteConfig.name}
-        </motion.h1>
+          {/* Name — display serif */}
+          <motion.h1
+            variants={fadeSlideUp}
+            className="font-display text-display-xl text-pearl tracking-tight leading-none mb-4"
+          >
+            {siteConfig.name}
+          </motion.h1>
 
-        {/* Horizontal rule — animated draw */}
+          {/* Horizontal rule — animated draw */}
+          <motion.div
+            variants={lineReveal}
+            className="h-px bg-gold-leaf w-32 mb-10"
+          />
+
+          {/* Lead paragraph */}
+          <motion.p
+            variants={fadeSlideUp}
+            className="font-sans text-body-lg text-chrome leading-relaxed mb-12"
+          >
+            Vindo de uma trajetória de 10 anos no mercado de joalharia de luxo,
+            decidi transitar para o desenvolvimento de software. Atualmente,
+            dedico-me ao estudo intensivo e à prática diária.
+          </motion.p>
+
+          {/* CTA row */}
+          <motion.div variants={fadeSlideUp} className="flex items-center gap-8">
+            <a
+              href="#projects"
+              className="font-sans text-caption tracking-luxury uppercase border border-platinum text-platinum
+                         px-8 py-3 hover:bg-platinum hover:text-obsidian transition-colors duration-300
+                         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
+            >
+              View Work
+            </a>
+            <a
+              href="#contact"
+              className="font-sans text-caption tracking-luxury uppercase text-chrome hover:text-pearl
+                         transition-colors duration-300"
+            >
+              Get in Touch
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Right column — portrait */}
         <motion.div
-          variants={lineReveal}
-          className="h-px bg-gold-leaf w-32 mb-8"
-        />
-
-        {/* Craft / Specialty */}
-        <motion.h2
           variants={fadeSlideUp}
-          className="font-display text-display-lg text-chrome font-light italic mb-10"
+          className="relative mx-auto lg:mx-0 w-[220px] lg:w-[360px] aspect-[4/5]
+                     border border-mist shadow-[0_8px_32px_rgba(0,0,0,0.4)] group overflow-hidden"
         >
-          {siteConfig.tagline}
-        </motion.h2>
-
-        {/* Lead paragraph */}
-        <motion.p
-          variants={fadeSlideUp}
-          className="font-sans text-body-lg text-chrome max-w-2xl leading-relaxed mb-16"
-        >
-          [Write 2–3 sentences about yourself. What do you build? What drives you?
-          What makes your approach distinctive? This is your opening statement —
-          write with conviction.]
-        </motion.p>
-
-        {/* CTA row */}
-        <motion.div variants={fadeSlideUp} className="flex items-center gap-8">
-          <a
-            href="#projects"
-            className="font-sans text-caption tracking-luxury uppercase border border-platinum text-platinum
-                       px-8 py-3 hover:bg-platinum hover:text-obsidian transition-colors duration-300
-                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
-          >
-            View Work
-          </a>
-          <a
-            href="#contact"
-            className="font-sans text-caption tracking-luxury uppercase text-chrome hover:text-pearl
-                       transition-colors duration-300"
-          >
-            Get in Touch
-          </a>
+          <Image
+            src="/me.webp"
+            alt={`Retrato de ${siteConfig.name}`}
+            fill
+            priority
+            sizes="(min-width: 1024px) 360px, 220px"
+            className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-[600ms] ease-in-out"
+          />
+          {/* Gold-leaf corner accent */}
+          <div className="absolute -bottom-px -left-px w-12 h-px bg-gold-leaf" />
+          <div className="absolute -bottom-px -left-px w-px h-12 bg-gold-leaf" />
         </motion.div>
+
       </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
         variants={subtleFadeIn}
+        initial="hidden"
+        animate="visible"
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="font-mono text-caption text-mist tracking-luxury uppercase">Scroll</span>

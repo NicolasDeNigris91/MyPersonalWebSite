@@ -64,21 +64,23 @@ function ExperienceEntryCard({ entry }: EntryProps) {
         <div className="h-px bg-mist mb-4" />
 
         {/* Highlights */}
-        <ul className="space-y-2 mb-4">
-          {entry.highlights.map((highlight) => (
-            <li key={highlight} className="flex items-start gap-3">
-              <span className="mt-2 w-1 h-1 rounded-full bg-gold-leaf flex-shrink-0" />
-              <span className="font-sans text-body text-chrome">{highlight}</span>
-            </li>
-          ))}
-        </ul>
+        {entry.highlights.length > 0 && (
+          <ul className="space-y-2 mb-4">
+            {entry.highlights.map((highlight) => (
+              <li key={highlight} className="flex items-start gap-3">
+                <span className="mt-2 w-1 h-1 rounded-full bg-gold-leaf flex-shrink-0" />
+                <span className="font-sans text-body text-chrome">{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Tags */}
         {entry.tags && entry.tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            {entry.tags.map((tag) => (
+            {entry.tags.map((tag, i) => (
               <span
-                key={tag}
+                key={i}
                 className="font-mono text-caption text-mist border border-mist px-3 py-1 tracking-wide"
               >
                 {tag}

@@ -1,29 +1,31 @@
 import type { SiteConfig, Skill } from '@/types';
 
 export const siteConfig: SiteConfig = {
-  name: '[Your Full Name]',
-  tagline: '[Your Job Title] · [Your Secondary Title] · [Your Third Title]',
-  email: '[your.email@example.com]',
-  github: 'https://github.com/[your-github-username]',
-  linkedin: 'https://linkedin.com/in/[your-linkedin-handle]',
-  location: '[Your City, Country]',
+  name: 'Nicolas Pilegi De Nigris',
+  tagline: 'Software Developer',
+  email: 'nicolas.denigris91@icloud.com',
+  phone: '(11) 98383-2041',
+  phoneLink: 'tel:+5511983832041',
+  github: 'https://github.com/NicolasDeNigris91',
+  linkedin: 'https://www.linkedin.com/in/nicolas-pilegi-de-nigris-10ab0a349/',
+  location: 'São Paulo, SP',
 };
 
 export const skillsData: Skill[] = [
   {
     category: 'Languages',
-    items: ['[Language 1]', '[Language 2]', '[Language 3]', '[Language 4]'],
+    items: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Go', 'C#'],
   },
   {
     category: 'Frameworks',
-    items: ['[Framework 1]', '[Framework 2]', '[Framework 3]'],
+    items: ['React.js', 'Next.js', 'FastAPI', 'Django', 'ASP.NET', 'Express.js'],
   },
   {
     category: 'Infrastructure',
-    items: ['[Tool 1]', '[Tool 2]', '[Tool 3]'],
+    items: ['Docker', 'Kubernetes', 'Amazon S3', 'Git & GitHub', 'TCP/IP', 'Microservices'],
   },
   {
-    category: 'Design',
-    items: ['[Tool 1]', '[Tool 2]'],
+    category: 'Data & Tools',
+    items: ['MongoDB', 'Qlikview', 'Qlik Replicate', 'Agile Scrum'],
   },
 ];

@@ -46,7 +46,7 @@ export function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid md:grid-cols-2 gap-6 mb-6"
+          className={`grid gap-6 mb-6 ${featured.length > 1 ? 'md:grid-cols-2' : 'max-w-2xl'}`}
         >
           {featured.map((project) => (
             <motion.div key={project.id} variants={cardVariants}>

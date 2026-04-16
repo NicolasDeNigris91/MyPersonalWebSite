@@ -14,6 +14,7 @@ const navVariants: Variants = {
 };
 
 const navLinks = [
+  { label: 'Courses', href: '#courses' },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
