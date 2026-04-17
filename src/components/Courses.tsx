@@ -5,6 +5,8 @@ import { BookOpen, Clock, Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
 import { coursesData } from '@/data/courses';
 
+const EASE_STANDARD = [0.25, 0.1, 0.25, 1] as [number, number, number, number];
+
 const VISIBLE_COUNT = 6;
 
 const containerVariants: Variants = {
@@ -17,7 +19,7 @@ const rowVariants: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] },
+    transition: { duration: 0.5, ease: EASE_STANDARD },
   },
 };
 
@@ -45,7 +47,7 @@ export function Courses() {
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] }}
+          transition={{ duration: 0.8, ease: EASE_STANDARD }}
           className="mb-16"
         >
           <p className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
@@ -94,6 +96,7 @@ export function Courses() {
               </span>
             </motion.div>
           ))}
+          {/* Always mounted so aria-controls resolves while collapsed. */}
           <div id="courses-hidden">
             <AnimatePresence initial={false}>
               {expanded && (
@@ -104,7 +107,7 @@ export function Courses() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{
                     duration: containerDuration,
-                    ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+                    ease: EASE_STANDARD,
                   }}
                   style={{ overflow: 'hidden' }}
                 >
@@ -118,7 +121,7 @@ export function Courses() {
                         transition: {
                           delay: i * rowDelayStep,
                           duration: rowDuration,
-                          ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+                          ease: EASE_STANDARD,
                         },
                       }}
                       className="group grid grid-cols-[1fr_auto_auto] md:grid-cols-[1fr_180px_80px] items-center
