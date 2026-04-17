@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { BookOpen, Clock } from 'lucide-react';
+import { BookOpen, Clock, Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
 import { coursesData } from '@/data/courses';
 
@@ -27,10 +27,10 @@ export function Courses() {
     return sum + num;
   }, 0);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [expanded, setExpanded] = useState(false);
   const ordered = [...coursesData].reverse();
   const visibleCourses = ordered.slice(0, VISIBLE_COUNT);
+  const hiddenCourses = ordered.slice(VISIBLE_COUNT);
 
   return (
     <section id="courses" className="px-8 md:px-16 lg:px-24 py-24 bg-graphite">
@@ -89,7 +89,48 @@ export function Courses() {
               </span>
             </motion.div>
           ))}
+          <div id="courses-hidden">
+            {expanded &&
+              hiddenCourses.map((course) => (
+                <div
+                  key={course.name}
+                  className="group grid grid-cols-[1fr_auto_auto] md:grid-cols-[1fr_180px_80px] items-center
+                             gap-4 md:gap-8 py-4 border-b border-mist/40
+                             hover:bg-carbon/50 transition-colors duration-200 px-4 -mx-4"
+                >
+                  <div className="flex items-center gap-3">
+                    <BookOpen size={14} strokeWidth={1} className="text-racing-green-lit flex-shrink-0 hidden md:block" />
+                    <span className="font-sans text-body text-pearl group-hover:text-gold-leaf transition-colors duration-300">
+                      {course.name}
+                    </span>
+                  </div>
+                  <span className="font-mono text-caption text-chrome tracking-wide text-right">
+                    {course.date}
+                  </span>
+                  <span className="font-mono text-caption text-racing-green-lit tracking-wide text-right flex items-center justify-end gap-1">
+                    <Clock size={12} strokeWidth={1} className="hidden md:block" />
+                    {course.hours}
+                  </span>
+                </div>
+              ))}
+          </div>
         </motion.div>
+
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          aria-controls="courses-hidden"
+          className="mt-12 mx-auto flex items-center gap-3
+                     px-8 py-3 border border-mist
+                     font-mono text-caption tracking-luxury uppercase text-chrome
+                     hover:border-gold-leaf hover:text-pearl
+                     transition-colors duration-300"
+        >
+          {expanded ? <Minus size={16} strokeWidth={1} /> : <Plus size={16} strokeWidth={1} />}
+          <span>
+            {expanded ? 'Show less' : `Show ${coursesData.length - VISIBLE_COUNT} more`}
+          </span>
+        </button>
       </div>
     </section>
   );
