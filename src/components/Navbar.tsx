@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { siteConfig } from '@/data/site';
 import { EASE_STANDARD } from '@/lib/motion';
+import { CopyEmailLink } from './CopyEmailLink';
 
 const navVariants: Variants = {
   hidden: { opacity: 0, y: -16 },
@@ -66,14 +67,13 @@ export function Navbar() {
         </div>
 
         {/* CTA */}
-        <a
-          href={`mailto:${siteConfig.email}`}
+        <CopyEmailLink
           className="font-sans text-caption tracking-luxury uppercase border border-mist text-chrome
                      px-5 py-2 hover:border-platinum hover:text-platinum transition-colors duration-300
                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
         >
           Say Hello
-        </a>
+        </CopyEmailLink>
       </div>
     </motion.nav>
   );
