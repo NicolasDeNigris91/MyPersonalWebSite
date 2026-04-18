@@ -8,7 +8,6 @@ export interface Project {
   href?: string;
   repoHref?: string;
   featured: boolean;
-  imageSrc?: string;
   imageAlt?: string;
 }
 

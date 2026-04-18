@@ -21,19 +21,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Card top accent */}
       <div className="h-px bg-gradient-to-r from-racing-green-lit via-gold-leaf to-transparent" />
 
-      {project.imageSrc && (
-        <div className="relative aspect-[16/10] overflow-hidden border-b border-mist bg-onyx">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.imageSrc}
-            alt={project.imageAlt ?? ''}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover object-top
-                       group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-          />
-        </div>
-      )}
-
       <div className="p-8 flex flex-col flex-1">
         {/* Year badge */}
         <div className="flex items-center justify-between mb-6">

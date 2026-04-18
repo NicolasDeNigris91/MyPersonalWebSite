@@ -37,7 +37,6 @@ export const projectsData: Project[] = [
     href: 'https://magic.nicolaspilegidenigris.dev',
     repoHref: 'https://github.com/NicolasDeNigris91/MagicProject',
     featured: true,
-    imageSrc: '/projects/magic/combat.png',
-    imageAlt: 'Tabuleiro do jogo com uma criatura selecionada como atacante, contornada a dourado',
+    imageAlt: 'Tabuleiro do MTG Accessible Combat com criaturas no campo',
   },
 ];
