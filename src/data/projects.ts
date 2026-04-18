@@ -26,4 +26,18 @@ export const projectsData: Project[] = [
     featured: true,
     imageAlt: 'Screenshot do dashboard do auditor de acessibilidade',
   },
+  {
+    id: 'proj-3',
+    title: 'MTG Accessible Combat',
+    subtitle: 'TCG keyboard-first e screen-reader-first',
+    description:
+      'Demo jogável de Magic: The Gathering construída com a premissa de que jogadores cegos e videntes devem receber informação equivalente. Cada carta carrega uma descrição acessível como dado de primeira classe, servindo simultaneamente aria-label, log de combate e anúncios em live regions. Engine de regras pura e framework-agnóstica, orquestração via Zustand, animações com Framer Motion que colapsam sob prefers-reduced-motion. Deck real via Scryfall API com fallback offline.',
+    tags: ['Next.js', 'TypeScript', 'Zustand', 'Framer Motion', 'Scryfall API', 'WCAG'],
+    year: 2026,
+    href: 'https://magic.nicolaspilegidenigris.dev',
+    repoHref: 'https://github.com/NicolasDeNigris91/MagicProject',
+    featured: true,
+    imageSrc: '/projects/magic/combat.png',
+    imageAlt: 'Tabuleiro do jogo com uma criatura selecionada como atacante, contornada a dourado',
+  },
 ];
