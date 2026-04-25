@@ -37,6 +37,18 @@ export const projectsData: Project[] = [
     featured: true,
   },
   {
+    id: 'proj-5',
+    title: 'Unholy Bastion',
+    subtitle: 'Roguelike turn-based em Godot, exportado para WebAssembly',
+    description:
+      'Roguelike turn-based de 30 andares construído em Godot 4 e GDScript, jogável direto no navegador via WebAssembly. Cinco atos com biomas distintos, sistema de altares de sacrifício, dois finais ramificados a partir de um único objeto colhido no andar 28, habilidades ativas por arma com cooldown, e cinemáticas pós-boss com sussurros fantasmagóricos. Renderização gl_compatibility para suporte amplo, dual-layer fog-of-war via TileMapLayer, FOV por raycasting, e arquitetura de combate estática para zero alocação por turno. Servido em produção via Caddy com headers cross-origin isolation para SharedArrayBuffer.',
+    tags: ['Godot', 'GDScript', 'WebAssembly', 'Caddy', 'Roguelike', 'Game Design'],
+    year: 2026,
+    href: 'https://unholybastion.nicolaspilegidenigris.dev',
+    repoHref: 'https://github.com/NicolasDeNigris91/Roguelike',
+    featured: true,
+  },
+  {
     id: 'proj-4',
     title: 'Postgres → MongoDB CDC',
     subtitle: 'Pipeline de migração zero-downtime com chaos testing',
