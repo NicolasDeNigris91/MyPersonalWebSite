@@ -9,7 +9,7 @@ export const projectsData: Project[] = [
       'Meu site pessoal, feito em Next.js 16 com TypeScript, Tailwind v4 e Framer Motion. Desenhei a paleta e a tipografia do zero porque queria algo que parecesse meu, não mais um template. Deploy roda no Railway.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     year: 2026,
-    repoHref: 'https://github.com/NicolasDeNigris91/MyPersonalWebSite',
+    repoHref: 'https://github.com/NicolasDeNigris91/Public_MyPersonalWebSite',
     featured: true,
   },
   {
@@ -21,7 +21,7 @@ export const projectsData: Project[] = [
     tags: ['TypeScript', 'Next.js', 'Puppeteer', 'BullMQ', 'MongoDB', 'Docker'],
     year: 2026,
     href: 'https://accessibility.nicolaspilegidenigris.dev',
-    repoHref: 'https://github.com/NicolasDeNigris91/AccessibilityProject',
+    repoHref: 'https://github.com/NicolasDeNigris91/Public_AccessibilityProject',
     featured: true,
   },
   {
@@ -33,7 +33,7 @@ export const projectsData: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Zustand', 'Framer Motion', 'Scryfall API', 'WCAG'],
     year: 2026,
     href: 'https://magic.nicolaspilegidenigris.dev',
-    repoHref: 'https://github.com/NicolasDeNigris91/MagicProject',
+    repoHref: 'https://github.com/NicolasDeNigris91/Public_MagicProject',
     featured: true,
   },
   {
@@ -45,7 +45,7 @@ export const projectsData: Project[] = [
     tags: ['Godot', 'GDScript', 'WebAssembly', 'Caddy', 'Roguelike', 'Game Design'],
     year: 2026,
     href: 'https://unholybastion.nicolaspilegidenigris.dev',
-    repoHref: 'https://github.com/NicolasDeNigris91/Roguelike',
+    repoHref: 'https://github.com/NicolasDeNigris91/Public_Roguelike',
     featured: true,
   },
   {
@@ -57,7 +57,7 @@ export const projectsData: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Tailwind v4', 'Markdown', 'Vitest', 'Docker', 'Railway'],
     year: 2026,
     href: 'https://fathom.nicolaspilegidenigris.dev',
-    repoHref: 'https://github.com/NicolasDeNigris91/FATHOM',
+    repoHref: 'https://github.com/NicolasDeNigris91/Public_FATHOM',
     featured: true,
   },
   {
@@ -68,7 +68,7 @@ export const projectsData: Project[] = [
       'Pipeline idempotente de Change Data Capture para migrar de Postgres para Mongo sem precisar parar de escrever no banco de origem. Debezium lê o WAL, um transformer em Go aplica os mapeamentos e o sink faz upsert no Mongo controlado por LSN. Rodei uma bateria de testes de chaos matando o sink no meio da carga e ele se recupera sem perder nem duplicar evento.',
     tags: ['Go', 'Postgres', 'MongoDB', 'Kafka', 'Debezium', 'Helm'],
     year: 2026,
-    repoHref: 'https://github.com/NicolasDeNigris91/Pg2MongoCdC',
+    repoHref: 'https://github.com/NicolasDeNigris91/Public_Pg2MongoCdC',
     featured: true,
   },
 ];
