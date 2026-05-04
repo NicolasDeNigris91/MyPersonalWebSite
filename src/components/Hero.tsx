@@ -52,12 +52,18 @@ export function Hero() {
             Portfolio · {new Date().getFullYear()}
           </motion.p>
 
-          <motion.h1
-            variants={fadeSlideUp}
-            className="font-display text-display-xl text-pearl mb-4 leading-none tracking-tight"
-          >
+          {/*
+            The h1 is the LCP element above the fold on mobile. Keeping it
+            inside a motion variant with initial={opacity:0, y:32} delays
+            its first visible paint until JS hydrates and the parent stagger
+            runs, which capped Lighthouse mobile at 93. Rendering it static
+            takes LCP from ~3.2s down to ~FCP. Editorially, magazine covers
+            do not animate the title; they animate the kicker, the rule and
+            the supporting copy around it. Those keep their cascade below.
+          */}
+          <h1 className="font-display text-display-xl text-pearl mb-4 leading-none tracking-tight">
             {siteConfig.name}
-          </motion.h1>
+          </h1>
 
           <motion.div
             variants={lineReveal}
