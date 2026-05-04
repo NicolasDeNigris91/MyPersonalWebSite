@@ -8,6 +8,15 @@ const SECTIONS = [
   'contact',
 ] as const;
 
+const PAGES: {
+  path: string;
+  priority: number;
+  changeFrequency: 'monthly' | 'weekly';
+}[] = [
+  { path: '/uses', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/now', priority: 0.6, changeFrequency: 'weekly' },
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base =
     process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nicolaspilegidenigris.dev';
@@ -27,5 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [home, ...sections];
+  const pages: MetadataRoute.Sitemap = PAGES.map((page) => ({
+    url: `${base}${page.path}`,
+    lastModified,
+    changeFrequency: page.changeFrequency,
+    priority: page.priority,
+  }));
+
+  return [home, ...sections, ...pages];
 }

@@ -61,7 +61,7 @@ export const config = {
     // from next.config.ts still cover them; CSP only matters on documents.
     {
       source:
-        '/((?!api/csp-report|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|opengraph-image|twitter-image|icon|apple-icon|me\\.webp).*)',
+        '/((?!api/csp-report|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|opengraph-image|twitter-image|icon|apple-icon|me\\.webp|cv\\.pdf).*)',
       missing: [
         { type: 'header', key: 'next-router-prefetch' },
         { type: 'header', key: 'purpose', value: 'prefetch' },
