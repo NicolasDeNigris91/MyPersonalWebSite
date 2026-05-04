@@ -15,8 +15,8 @@ const itemVariants: Variants = {
 
 export function Skills() {
   return (
-    <section id="skills" className="px-8 md:px-16 lg:px-24 py-24">
-      <div className="max-w-5xl mx-auto">
+    <section id="skills" className="px-8 py-24 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,11 +24,13 @@ export function Skills() {
           transition={{ duration: 0.8, ease: EASE_STANDARD }}
           className="mb-16 flex flex-col"
         >
-          <h2 className="font-display text-display-lg text-pearl">Skills &amp; Tools</h2>
-          <div className="h-px bg-gold-leaf w-32 mt-6" />
+          <h2 className="font-display text-display-lg text-pearl">
+            Skills &amp; Tools
+          </h2>
+          <div className="bg-gold-leaf mt-6 h-px w-32" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {skillsData.map((skill) => (
             <motion.div
               key={skill.category}
@@ -37,7 +39,7 @@ export function Skills() {
               whileInView="visible"
               viewport={{ once: true, margin: '-40px' }}
             >
-              <h3 className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-6">
+              <h3 className="text-caption text-racing-green-lit tracking-luxury mb-6 font-mono uppercase">
                 {skill.category}
               </h3>
               <ul className="space-y-3">
@@ -47,8 +49,10 @@ export function Skills() {
                     variants={itemVariants}
                     className="flex items-center gap-3"
                   >
-                    <span className="w-1 h-1 rounded-full bg-gold-leaf flex-shrink-0" />
-                    <span className="font-sans text-body text-chrome">{item}</span>
+                    <span className="bg-gold-leaf h-1 w-1 flex-shrink-0 rounded-full" />
+                    <span className="text-body text-chrome font-sans">
+                      {item}
+                    </span>
                   </motion.li>
                 ))}
               </ul>

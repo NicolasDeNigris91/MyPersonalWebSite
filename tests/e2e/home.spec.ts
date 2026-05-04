@@ -36,6 +36,51 @@ test.describe('home', () => {
     expect(blocking).toEqual([]);
   });
 
+  test('copy-email link writes to clipboard and surfaces a toast', async ({
+    page,
+    context,
+  }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    // Stop the browser from launching the OS mail handler. It steals focus
+    // and prevents React from committing the toast state in the snapshot.
+    await page.addInitScript(() => {
+      document.addEventListener(
+        'click',
+        (event) => {
+          const target = event.target as HTMLElement | null;
+          if (target?.closest('a[href^="mailto:"]')) {
+            event.preventDefault();
+          }
+        },
+        true,
+      );
+    });
+    await page.goto('/');
+
+    const link = page.getByRole('link', { name: /click copies it/i }).first();
+    await link.click();
+
+    await expect(page.getByText(/email copied/i)).toBeVisible();
+
+    const clipboard = await page.evaluate(() => navigator.clipboard.readText());
+    expect(clipboard).toBe('nicolas.denigris91@icloud.com');
+  });
+
+  test('all external links carry rel="noopener noreferrer"', async ({
+    page,
+  }) => {
+    await page.goto('/');
+    const externals = page.locator('a[target="_blank"]');
+    const count = await externals.count();
+    expect(count).toBeGreaterThan(0);
+
+    for (let i = 0; i < count; i++) {
+      const rel = (await externals.nth(i).getAttribute('rel')) ?? '';
+      expect(rel).toContain('noopener');
+      expect(rel).toContain('noreferrer');
+    }
+  });
+
   test('mobile nav opens, traps focus and closes on Escape', async ({
     page,
   }) => {

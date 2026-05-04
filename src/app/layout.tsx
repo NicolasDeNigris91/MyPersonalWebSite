@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from 'next/font/google';
 import { siteConfig } from '@/data/site';
-import {
-  JsonLd,
-  personSchema,
-  websiteSchema,
-} from '@/components/seo/JsonLd';
+import { JsonLd, personSchema, websiteSchema } from '@/components/seo/JsonLd';
 import { WebVitals } from '@/components/WebVitals';
 import { MotionProvider } from '@/components/MotionProvider';
 import './globals.css';
@@ -73,8 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
-    description:
-      'Portfolio pessoal com projetos, experiência e estudos.',
+    description: 'Portfolio pessoal com projetos, experiência e estudos.',
   },
   robots: {
     index: true,
@@ -108,9 +103,7 @@ export default function RootLayout({
       <body className="bg-obsidian text-platinum font-sans antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
-                     focus:px-6 focus:py-3 focus:bg-racing-green focus:text-pearl
-                     focus:font-sans focus:text-caption focus:tracking-luxury focus:uppercase"
+          className="focus:bg-racing-green focus:text-pearl focus:text-caption focus:tracking-luxury sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:font-sans focus:uppercase"
         >
           Skip to content
         </a>

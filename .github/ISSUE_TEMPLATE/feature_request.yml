@@ -1,7 +1,7 @@
 name: Feature request
 description: Suggest an addition or change to the portfolio site.
-title: "[feat] "
-labels: ["enhancement", "triage"]
+title: '[feat] '
+labels: ['enhancement', 'triage']
 body:
   - type: textarea
     id: problem

@@ -38,7 +38,9 @@ export default async function OpengraphImage() {
     tryFetchFont(FONT_SOURCES.inter),
   ]);
 
-  const fonts: NonNullable<ConstructorParameters<typeof ImageResponse>[1]>['fonts'] = [];
+  const fonts: NonNullable<
+    ConstructorParameters<typeof ImageResponse>[1]
+  >['fonts'] = [];
   if (cormorantItalic) {
     fonts.push({
       name: 'Cormorant',
@@ -72,121 +74,119 @@ export default async function OpengraphImage() {
     : 'sans-serif';
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '72px 88px',
+        backgroundColor: OBSIDIAN,
+        color: PEARL,
+        position: 'relative',
+      }}
+    >
       <div
         style={{
-          width: '100%',
-          height: '100%',
+          position: 'absolute',
+          left: 88,
+          top: 88,
+          bottom: 88,
+          width: 1,
+          backgroundColor: GOLD,
+          opacity: 0.6,
+        }}
+      />
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingLeft: 32,
+          fontFamily: sansFontFamily,
+          fontSize: 16,
+          letterSpacing: '0.24em',
+          textTransform: 'uppercase',
+          color: CHROME,
+        }}
+      >
+        <span>{siteConfig.tagline}</span>
+        <span>São Paulo · BR</span>
+      </div>
+
+      <div
+        style={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          padding: '72px 88px',
-          backgroundColor: OBSIDIAN,
-          color: PEARL,
-          position: 'relative',
+          paddingLeft: 32,
+          gap: 28,
         }}
       >
         <div
           style={{
-            position: 'absolute',
-            left: 88,
-            top: 88,
-            bottom: 88,
-            width: 1,
-            backgroundColor: GOLD,
-            opacity: 0.6,
-          }}
-        />
-
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            paddingLeft: 32,
-            fontFamily: sansFontFamily,
-            fontSize: 16,
-            letterSpacing: '0.24em',
-            textTransform: 'uppercase',
-            color: CHROME,
-          }}
-        >
-          <span>{siteConfig.tagline}</span>
-          <span>São Paulo · BR</span>
-        </div>
-
-        <div
-          style={{
             display: 'flex',
             flexDirection: 'column',
-            paddingLeft: 32,
-            gap: 28,
+            fontFamily: displayFontFamily,
+            fontStyle: 'italic',
+            fontWeight: 300,
+            fontSize: 128,
+            lineHeight: 1.05,
+            letterSpacing: '-0.02em',
+            color: PEARL,
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              fontFamily: displayFontFamily,
-              fontStyle: 'italic',
-              fontWeight: 300,
-              fontSize: 128,
-              lineHeight: 1.05,
-              letterSpacing: '-0.02em',
-              color: PEARL,
-            }}
-          >
-            <span>Nicolas Pilegi</span>
-            <span>De Nigris</span>
-          </div>
-
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 24,
-            }}
-          >
-            <div
-              style={{
-                width: 72,
-                height: 1,
-                backgroundColor: GOLD,
-              }}
-            />
-            <span
-              style={{
-                fontFamily: sansFontFamily,
-                fontSize: 22,
-                letterSpacing: '0.04em',
-                color: CHROME,
-              }}
-            >
-              Precisão · craft · depth
-            </span>
-          </div>
+          <span>Nicolas Pilegi</span>
+          <span>De Nigris</span>
         </div>
 
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-between',
             alignItems: 'center',
-            paddingLeft: 32,
-            paddingTop: 24,
-            borderTop: `1px solid ${MIST}`,
-            fontFamily: sansFontFamily,
-            fontSize: 16,
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: CHROME,
+            gap: 24,
           }}
         >
-          <span>nicolaspilegidenigris.dev</span>
-          <span style={{ color: GOLD }}>NPDN</span>
+          <div
+            style={{
+              width: 72,
+              height: 1,
+              backgroundColor: GOLD,
+            }}
+          />
+          <span
+            style={{
+              fontFamily: sansFontFamily,
+              fontSize: 22,
+              letterSpacing: '0.04em',
+              color: CHROME,
+            }}
+          >
+            Precisão · craft · depth
+          </span>
         </div>
       </div>
-    ),
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          paddingLeft: 32,
+          paddingTop: 24,
+          borderTop: `1px solid ${MIST}`,
+          fontFamily: sansFontFamily,
+          fontSize: 16,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: CHROME,
+        }}
+      >
+        <span>nicolaspilegidenigris.dev</span>
+        <span style={{ color: GOLD }}>NPDN</span>
+      </div>
+    </div>,
     {
       ...size,
       fonts: fonts.length > 0 ? fonts : undefined,

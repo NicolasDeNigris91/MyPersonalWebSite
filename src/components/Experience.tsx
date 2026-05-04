@@ -28,39 +28,53 @@ function ExperienceEntryCard({ entry }: EntryProps) {
       className="group relative grid grid-cols-[1px_1fr] gap-8"
     >
       <div className="relative flex flex-col items-center">
-        <div className="w-px flex-1 bg-mist" />
-        <div className="absolute top-3 w-2 h-2 rounded-full bg-racing-green-lit ring-4 ring-obsidian" />
+        <div className="bg-mist w-px flex-1" />
+        <div className="bg-racing-green-lit ring-obsidian absolute top-3 h-2 w-2 rounded-full ring-4" />
       </div>
 
       <div className="pb-12 pl-4">
-        <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
+        <div className="mb-3 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <Icon size={14} strokeWidth={1} className="text-racing-green-lit" />
-              <span className="font-mono text-caption text-racing-green-lit tracking-wide uppercase">
+            <div className="mb-1 flex items-center gap-2">
+              <Icon
+                size={14}
+                strokeWidth={1}
+                className="text-racing-green-lit"
+              />
+              <span className="text-caption text-racing-green-lit font-mono tracking-wide uppercase">
                 {entry.type === 'education' ? 'Education' : 'Experience'}
               </span>
             </div>
-            <h3 className="font-display text-display-md text-pearl">{entry.organisation}</h3>
-            <p className="font-sans text-body text-chrome font-light">{entry.role}</p>
+            <h3 className="font-display text-display-md text-pearl">
+              {entry.organisation}
+            </h3>
+            <p className="text-body text-chrome font-sans font-light">
+              {entry.role}
+            </p>
           </div>
           <div className="text-right">
-            <p className="font-mono text-caption text-chrome tracking-wide">{entry.period}</p>
-            <div className="flex items-center justify-end gap-1 mt-1">
+            <p className="text-caption text-chrome font-mono tracking-wide">
+              {entry.period}
+            </p>
+            <div className="mt-1 flex items-center justify-end gap-1">
               <MapPin size={12} strokeWidth={1} className="text-mist" />
-              <span className="font-mono text-caption text-mist">{entry.location}</span>
+              <span className="text-caption text-mist font-mono">
+                {entry.location}
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="h-px bg-mist mb-4" />
+        <div className="bg-mist mb-4 h-px" />
 
         {entry.highlights.length > 0 && (
-          <ul className="space-y-2 mb-4">
+          <ul className="mb-4 space-y-2">
             {entry.highlights.map((highlight) => (
               <li key={highlight} className="flex items-start gap-3">
-                <span className="mt-2 w-1 h-1 rounded-full bg-gold-leaf flex-shrink-0" />
-                <span className="font-sans text-body text-chrome">{highlight}</span>
+                <span className="bg-gold-leaf mt-2 h-1 w-1 flex-shrink-0 rounded-full" />
+                <span className="text-body text-chrome font-sans">
+                  {highlight}
+                </span>
               </li>
             ))}
           </ul>
@@ -71,7 +85,7 @@ function ExperienceEntryCard({ entry }: EntryProps) {
             {entry.tags.map((tag, i) => (
               <span
                 key={i}
-                className="font-mono text-caption text-mist border border-mist px-3 py-1 tracking-wide"
+                className="text-caption text-mist border-mist border px-3 py-1 font-mono tracking-wide"
               >
                 {tag}
               </span>
@@ -88,8 +102,8 @@ export function Experience() {
   const education = experienceData.filter((e) => e.type === 'education');
 
   return (
-    <section id="experience" className="px-8 md:px-16 lg:px-24 py-24">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="px-8 py-24 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -97,16 +111,18 @@ export function Experience() {
           transition={{ duration: 0.8, ease: EASE_STANDARD }}
           className="mb-16"
         >
-          <p className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+          <p className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
             Background
           </p>
-          <h2 className="font-display text-display-lg text-pearl">Experience &amp; Education</h2>
-          <div className="h-px bg-gold-leaf w-24 mt-4" />
+          <h2 className="font-display text-display-lg text-pearl">
+            Experience &amp; Education
+          </h2>
+          <div className="bg-gold-leaf mt-4 h-px w-24" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid gap-16 lg:grid-cols-2">
           <div>
-            <p className="font-mono text-caption text-chrome tracking-luxury uppercase mb-8">
+            <p className="text-caption text-chrome tracking-luxury mb-8 font-mono uppercase">
               Work History
             </p>
             <motion.div
@@ -122,7 +138,7 @@ export function Experience() {
           </div>
 
           <div>
-            <p className="font-mono text-caption text-chrome tracking-luxury uppercase mb-8">
+            <p className="text-caption text-chrome tracking-luxury mb-8 font-mono uppercase">
               Education
             </p>
             <motion.div

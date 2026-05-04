@@ -19,8 +19,8 @@ export function Projects() {
   const rest = projectsData.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="px-8 md:px-16 lg:px-24 py-24 bg-graphite">
-      <div className="max-w-5xl mx-auto">
+    <section id="projects" className="bg-graphite px-8 py-24 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,11 +28,11 @@ export function Projects() {
           transition={{ duration: 0.8, ease: EASE_STANDARD }}
           className="mb-16"
         >
-          <p className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+          <p className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
             Selected Work
           </p>
           <h2 className="font-display text-display-lg text-pearl">Projects</h2>
-          <div className="h-px bg-gold-leaf w-24 mt-4" />
+          <div className="bg-gold-leaf mt-4 h-px w-24" />
         </motion.div>
 
         <motion.div
@@ -40,7 +40,7 @@ export function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className={`grid gap-6 mb-6 ${featured.length > 1 ? 'md:grid-cols-2' : 'max-w-2xl'}`}
+          className={`mb-6 grid gap-6 ${featured.length > 1 ? 'md:grid-cols-2' : 'max-w-2xl'}`}
         >
           {featured.map((project) => (
             <motion.div key={project.id} variants={cardVariants}>
@@ -55,7 +55,7 @@ export function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid md:grid-cols-3 gap-6"
+            className="grid gap-6 md:grid-cols-3"
           >
             {rest.map((project) => (
               <motion.div key={project.id} variants={cardVariants}>

@@ -18,11 +18,25 @@ export const skillsData: Skill[] = [
   },
   {
     category: 'Frameworks',
-    items: ['React.js', 'Next.js', 'FastAPI', 'Django', 'ASP.NET', 'Express.js'],
+    items: [
+      'React.js',
+      'Next.js',
+      'FastAPI',
+      'Django',
+      'ASP.NET',
+      'Express.js',
+    ],
   },
   {
     category: 'Infrastructure',
-    items: ['Docker', 'Kubernetes', 'Amazon S3', 'Git & GitHub', 'TCP/IP', 'Microservices'],
+    items: [
+      'Docker',
+      'Kubernetes',
+      'Amazon S3',
+      'Git & GitHub',
+      'TCP/IP',
+      'Microservices',
+    ],
   },
   {
     category: 'Data & Tools',

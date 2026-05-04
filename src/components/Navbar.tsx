@@ -123,23 +123,25 @@ export function Navbar() {
       initial="hidden"
       animate="visible"
       aria-label="Primary"
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+      className={`fixed top-0 right-0 left-0 z-40 transition-all duration-500 ${
         scrolled
-          ? 'bg-obsidian/90 backdrop-blur-md border-b border-mist/30'
+          ? 'bg-obsidian/90 border-mist/30 border-b backdrop-blur-md'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 md:px-16 lg:px-24 py-5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 md:px-16 lg:px-24">
         <a
           href="#"
           aria-label={`${siteConfig.name} — início`}
-          className="font-display text-lg text-pearl tracking-wide hover:text-gold-leaf transition-colors duration-300
-                     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-platinum"
+          className="font-display text-pearl hover:text-gold-leaf focus-visible:outline-platinum text-lg tracking-wide transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
         >
-          {siteConfig.name.split(' ').map((word) => word[0]).join('')}
+          {siteConfig.name
+            .split(' ')
+            .map((word) => word[0])
+            .join('')}
         </a>
 
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => {
             const isActive = activeId === link.id;
             return (
@@ -147,15 +149,12 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? 'location' : undefined}
-                className={`relative font-sans text-caption tracking-luxury uppercase transition-colors duration-300
-                           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-platinum
-                           ${isActive ? 'text-pearl' : 'text-chrome hover:text-pearl'}`}
+                className={`text-caption tracking-luxury focus-visible:outline-platinum relative font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${isActive ? 'text-pearl' : 'text-chrome hover:text-pearl'}`}
               >
                 {link.label}
                 <span
                   aria-hidden="true"
-                  className={`absolute -bottom-1 left-0 h-px bg-gold-leaf transition-[width] duration-300
-                             ${isActive ? 'w-full' : 'w-0'}`}
+                  className={`bg-gold-leaf absolute -bottom-1 left-0 h-px transition-[width] duration-300 ${isActive ? 'w-full' : 'w-0'}`}
                 />
               </a>
             );
@@ -163,11 +162,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <CopyEmailLink
-            className="hidden md:inline-block font-sans text-caption tracking-luxury uppercase border border-mist text-chrome
-                       px-5 py-2 hover:border-platinum hover:text-platinum transition-colors duration-300
-                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
-          >
+          <CopyEmailLink className="text-caption tracking-luxury border-mist text-chrome hover:border-platinum hover:text-platinum focus-visible:outline-platinum hidden border px-5 py-2 font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:inline-block">
             Say Hello
           </CopyEmailLink>
 
@@ -179,8 +174,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-nav-dialog"
             aria-label="Abrir menu"
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 text-platinum
-                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
+            className="text-platinum focus-visible:outline-platinum inline-flex h-10 w-10 items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden"
           >
             <Menu size={20} strokeWidth={1} aria-hidden="true" />
           </button>
@@ -194,18 +188,20 @@ export function Navbar() {
           role="dialog"
           aria-modal="true"
           aria-label="Menu de navegação"
-          className="fixed inset-0 z-50 bg-obsidian flex flex-col"
+          className="bg-obsidian fixed inset-0 z-50 flex flex-col"
         >
-          <div className="flex items-center justify-between px-8 py-5 border-b border-mist/30">
-            <span className="font-display text-lg text-pearl tracking-wide">
-              {siteConfig.name.split(' ').map((word) => word[0]).join('')}
+          <div className="border-mist/30 flex items-center justify-between border-b px-8 py-5">
+            <span className="font-display text-pearl text-lg tracking-wide">
+              {siteConfig.name
+                .split(' ')
+                .map((word) => word[0])
+                .join('')}
             </span>
             <button
               type="button"
               onClick={closeDialog}
               aria-label="Fechar menu"
-              className="inline-flex items-center justify-center w-10 h-10 text-platinum
-                         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
+              className="text-platinum focus-visible:outline-platinum inline-flex h-10 w-10 items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             >
               <X size={20} strokeWidth={1} aria-hidden="true" />
             </button>
@@ -213,7 +209,7 @@ export function Navbar() {
 
           <nav
             aria-label="Mobile primary"
-            className="flex-1 flex flex-col justify-center gap-10 px-12"
+            className="flex flex-1 flex-col justify-center gap-10 px-12"
           >
             {navLinks.map((link) => {
               const isActive = activeId === link.id;
@@ -223,9 +219,7 @@ export function Navbar() {
                   href={link.href}
                   onClick={closeDialog}
                   aria-current={isActive ? 'location' : undefined}
-                  className={`font-display italic text-display-md tracking-tight transition-colors duration-300
-                             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-platinum
-                             ${isActive ? 'text-pearl' : 'text-chrome hover:text-pearl'}`}
+                  className={`font-display text-display-md focus-visible:outline-platinum tracking-tight italic transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${isActive ? 'text-pearl' : 'text-chrome hover:text-pearl'}`}
                 >
                   {link.label}
                 </a>
@@ -233,12 +227,8 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="px-8 py-8 border-t border-mist/30">
-            <CopyEmailLink
-              className="block w-full text-center font-sans text-caption tracking-luxury uppercase border border-mist text-chrome
-                         px-5 py-3 hover:border-platinum hover:text-platinum transition-colors duration-300
-                         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-platinum"
-            >
+          <div className="border-mist/30 border-t px-8 py-8">
+            <CopyEmailLink className="text-caption tracking-luxury border-mist text-chrome hover:border-platinum hover:text-platinum focus-visible:outline-platinum block w-full border px-5 py-3 text-center font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
               Say Hello
             </CopyEmailLink>
           </div>

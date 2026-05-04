@@ -1,57 +1,57 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* ─── Colors ─────────────────────────────────────────── */
-  --color-obsidian:          #0A0A0A;
-  --color-graphite:          #111111;
-  --color-carbon:            #1A1A1A;
-  --color-chrome:            #C0C0C0;
-  --color-platinum:          #E8E8E8;
-  --color-pearl:             #F5F5F0;
-  --color-racing-green:      #0B3D2E;
-  --color-racing-green-lit:  #1A6B50;
-  --color-gold-leaf:         #B8963E;
-  --color-mist:              #3A3A3A;
+  --color-obsidian: #0a0a0a;
+  --color-graphite: #111111;
+  --color-carbon: #1a1a1a;
+  --color-chrome: #c0c0c0;
+  --color-platinum: #e8e8e8;
+  --color-pearl: #f5f5f0;
+  --color-racing-green: #0b3d2e;
+  --color-racing-green-lit: #1a6b50;
+  --color-gold-leaf: #b8963e;
+  --color-mist: #3a3a3a;
 
   /* ─── Font Families ──────────────────────────────────── */
   --font-display: var(--font-cormorant), Georgia, serif;
-  --font-sans:    var(--font-inter), system-ui, sans-serif;
-  --font-mono:    var(--font-jetbrains), ui-monospace, monospace;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
   /* ─── Font Sizes + Line Heights ──────────────────────── */
-  --text-display-xl:               5rem;
-  --text-display-xl--line-height:  1.05;
-  --text-display-xl--font-weight:  300;
+  --text-display-xl: 5rem;
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--font-weight: 300;
 
-  --text-display-lg:               3.5rem;
-  --text-display-lg--line-height:  1.1;
-  --text-display-lg--font-weight:  300;
+  --text-display-lg: 3.5rem;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--font-weight: 300;
 
-  --text-display-md:               2rem;
-  --text-display-md--line-height:  1.2;
-  --text-display-md--font-weight:  400;
+  --text-display-md: 2rem;
+  --text-display-md--line-height: 1.2;
+  --text-display-md--font-weight: 400;
 
-  --text-body-lg:                  1.125rem;
-  --text-body-lg--line-height:     1.75;
-  --text-body-lg--font-weight:     300;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.75;
+  --text-body-lg--font-weight: 300;
 
-  --text-body:                     1rem;
-  --text-body--line-height:        1.7;
-  --text-body--font-weight:        300;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-body--font-weight: 300;
 
-  --text-caption:                  0.75rem;
-  --text-caption--line-height:     1.5;
-  --text-caption--font-weight:     400;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.5;
+  --text-caption--font-weight: 400;
 
   /* ─── Letter Spacing ─────────────────────────────────── */
   --tracking-luxury: 0.15em;
-  --tracking-wide:   0.08em;
-  --tracking-tight:  -0.02em;
+  --tracking-wide: 0.08em;
+  --tracking-tight: -0.02em;
 
   /* ─── Box Shadows ────────────────────────────────────── */
-  --shadow-card:        0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover:  0 16px 48px rgba(0, 0, 0, 0.6);
-  --shadow-glow-green:  0 0 24px rgba(26, 107, 80, 0.2);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-glow-green: 0 0 24px rgba(26, 107, 80, 0.2);
 }
 
 @layer base {

@@ -15,7 +15,11 @@ interface CopyEmailLinkProps {
   ariaLabel?: string;
 }
 
-export function CopyEmailLink({ className, children, ariaLabel }: CopyEmailLinkProps) {
+export function CopyEmailLink({
+  className,
+  children,
+  ariaLabel,
+}: CopyEmailLinkProps) {
   const [showToast, setShowToast] = useState(false);
   const [mounted, setMounted] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -34,7 +38,10 @@ export function CopyEmailLink({ className, children, ariaLabel }: CopyEmailLinkP
     navigator.clipboard?.writeText(siteConfig.email);
     setShowToast(true);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    timeoutRef.current = setTimeout(() => setShowToast(false), TOAST_VISIBLE_MS);
+    timeoutRef.current = setTimeout(
+      () => setShowToast(false),
+      TOAST_VISIBLE_MS,
+    );
   };
 
   return (
@@ -42,7 +49,10 @@ export function CopyEmailLink({ className, children, ariaLabel }: CopyEmailLinkP
       <a
         href={`mailto:${siteConfig.email}`}
         onClick={handleClick}
-        aria-label={ariaLabel ?? `Email ${siteConfig.email} (click copies it to your clipboard)`}
+        aria-label={
+          ariaLabel ??
+          `Email ${siteConfig.email} (click copies it to your clipboard)`
+        }
         className={className}
       >
         {children}
@@ -57,13 +67,18 @@ export function CopyEmailLink({ className, children, ariaLabel }: CopyEmailLinkP
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 16 }}
-                transition={{ duration: reduced ? 0.01 : 0.4, ease: EASE_STANDARD }}
-                className="fixed bottom-8 right-8 z-50 flex items-center gap-3
-                           bg-graphite border border-gold-leaf px-6 py-3
-                           font-mono text-caption tracking-luxury uppercase text-pearl
-                           shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+                transition={{
+                  duration: reduced ? 0.01 : 0.4,
+                  ease: EASE_STANDARD,
+                }}
+                className="bg-graphite border-gold-leaf text-caption tracking-luxury text-pearl fixed right-8 bottom-8 z-50 flex items-center gap-3 border px-6 py-3 font-mono uppercase shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
               >
-                <Check aria-hidden="true" size={14} strokeWidth={1} className="text-gold-leaf" />
+                <Check
+                  aria-hidden="true"
+                  size={14}
+                  strokeWidth={1}
+                  className="text-gold-leaf"
+                />
                 <span>Email copied</span>
               </motion.div>
             )}

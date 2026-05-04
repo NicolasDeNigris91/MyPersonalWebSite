@@ -1,6 +1,11 @@
 'use client';
 
-import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  type Variants,
+} from 'framer-motion';
 import { BookOpen, Clock, Plus, Minus } from 'lucide-react';
 import { useState } from 'react';
 import { coursesData } from '@/data/courses';
@@ -34,8 +39,8 @@ export function Courses() {
   const rowDelayStep = reduced ? 0 : 0.04;
 
   return (
-    <section id="courses" className="px-8 md:px-16 lg:px-24 py-24 bg-graphite">
-      <div className="max-w-5xl mx-auto">
+    <section id="courses" className="bg-graphite px-8 py-24 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,13 +48,16 @@ export function Courses() {
           transition={{ duration: 0.8, ease: EASE_STANDARD }}
           className="mb-16"
         >
-          <p className="font-mono text-caption text-racing-green-lit tracking-luxury uppercase mb-3">
+          <p className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
             Continuous Learning
           </p>
-          <h2 className="font-display text-display-lg text-pearl">Courses &amp; Certifications</h2>
-          <div className="h-px bg-gold-leaf w-24 mt-4" />
-          <p className="font-mono text-caption text-chrome tracking-wide mt-4">
-            {coursesData.length} courses · {totalHours.toFixed(0).replace('.', ',')}+ hours of study
+          <h2 className="font-display text-display-lg text-pearl">
+            Courses &amp; Certifications
+          </h2>
+          <div className="bg-gold-leaf mt-4 h-px w-24" />
+          <p className="text-caption text-chrome mt-4 font-mono tracking-wide">
+            {coursesData.length} courses ·{' '}
+            {totalHours.toFixed(0).replace('.', ',')}+ hours of study
           </p>
         </motion.div>
 
@@ -64,22 +72,24 @@ export function Courses() {
             <motion.div
               key={course.name}
               variants={rowVariants}
-              className="group grid grid-cols-[1fr_auto_auto] md:grid-cols-[1fr_180px_80px] items-center
-                         gap-4 md:gap-8 py-4 border-b border-mist/40
-                         hover:bg-carbon/50 transition-colors duration-200 px-4 -mx-4"
+              className="group border-mist/40 hover:bg-carbon/50 -mx-4 grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b px-4 py-4 transition-colors duration-200 md:grid-cols-[1fr_180px_80px] md:gap-8"
             >
               <div className="flex items-center gap-3">
-                <BookOpen size={14} strokeWidth={1} className="text-racing-green-lit flex-shrink-0 hidden md:block" />
-                <span className="font-sans text-body text-pearl group-hover:text-gold-leaf transition-colors duration-300">
+                <BookOpen
+                  size={14}
+                  strokeWidth={1}
+                  className="text-racing-green-lit hidden flex-shrink-0 md:block"
+                />
+                <span className="text-body text-pearl group-hover:text-gold-leaf font-sans transition-colors duration-300">
                   {course.name}
                 </span>
               </div>
 
-              <span className="font-mono text-caption text-chrome tracking-wide text-right">
+              <span className="text-caption text-chrome text-right font-mono tracking-wide">
                 {course.date}
               </span>
 
-              <span className="font-mono text-caption text-racing-green-lit tracking-wide text-right flex items-center justify-end gap-1">
+              <span className="text-caption text-racing-green-lit flex items-center justify-end gap-1 text-right font-mono tracking-wide">
                 <Clock size={12} strokeWidth={1} className="hidden md:block" />
                 {course.hours}
               </span>
@@ -112,21 +122,27 @@ export function Courses() {
                           ease: EASE_STANDARD,
                         },
                       }}
-                      className="group grid grid-cols-[1fr_auto_auto] md:grid-cols-[1fr_180px_80px] items-center
-                                 gap-4 md:gap-8 py-4 border-b border-mist/40
-                                 hover:bg-carbon/50 transition-colors duration-200 px-4 -mx-4"
+                      className="group border-mist/40 hover:bg-carbon/50 -mx-4 grid grid-cols-[1fr_auto_auto] items-center gap-4 border-b px-4 py-4 transition-colors duration-200 md:grid-cols-[1fr_180px_80px] md:gap-8"
                     >
                       <div className="flex items-center gap-3">
-                        <BookOpen size={14} strokeWidth={1} className="text-racing-green-lit flex-shrink-0 hidden md:block" />
-                        <span className="font-sans text-body text-pearl group-hover:text-gold-leaf transition-colors duration-300">
+                        <BookOpen
+                          size={14}
+                          strokeWidth={1}
+                          className="text-racing-green-lit hidden flex-shrink-0 md:block"
+                        />
+                        <span className="text-body text-pearl group-hover:text-gold-leaf font-sans transition-colors duration-300">
                           {course.name}
                         </span>
                       </div>
-                      <span className="font-mono text-caption text-chrome tracking-wide text-right">
+                      <span className="text-caption text-chrome text-right font-mono tracking-wide">
                         {course.date}
                       </span>
-                      <span className="font-mono text-caption text-racing-green-lit tracking-wide text-right flex items-center justify-end gap-1">
-                        <Clock size={12} strokeWidth={1} className="hidden md:block" />
+                      <span className="text-caption text-racing-green-lit flex items-center justify-end gap-1 text-right font-mono tracking-wide">
+                        <Clock
+                          size={12}
+                          strokeWidth={1}
+                          className="hidden md:block"
+                        />
                         {course.hours}
                       </span>
                     </motion.div>
@@ -141,15 +157,17 @@ export function Courses() {
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
           aria-controls="courses-hidden"
-          className="mt-12 mx-auto flex items-center gap-3
-                     px-8 py-3 border border-mist
-                     font-mono text-caption tracking-luxury uppercase text-chrome
-                     hover:border-gold-leaf hover:text-pearl
-                     transition-colors duration-300"
+          className="border-mist text-caption tracking-luxury text-chrome hover:border-gold-leaf hover:text-pearl mx-auto mt-12 flex items-center gap-3 border px-8 py-3 font-mono uppercase transition-colors duration-300"
         >
-          {expanded ? <Minus size={16} strokeWidth={1} /> : <Plus size={16} strokeWidth={1} />}
+          {expanded ? (
+            <Minus size={16} strokeWidth={1} />
+          ) : (
+            <Plus size={16} strokeWidth={1} />
+          )}
           <span>
-            {expanded ? 'Show less' : `Show ${coursesData.length - VISIBLE_COUNT} more`}
+            {expanded
+              ? 'Show less'
+              : `Show ${coursesData.length - VISIBLE_COUNT} more`}
           </span>
         </button>
       </div>

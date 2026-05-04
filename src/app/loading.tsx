@@ -4,11 +4,11 @@ export default function Loading() {
       role="status"
       aria-live="polite"
       aria-label="Carregando"
-      className="min-h-screen flex items-center justify-center bg-obsidian"
+      className="bg-obsidian flex min-h-screen items-center justify-center"
     >
       <div className="flex flex-col items-center gap-6">
-        <div className="h-px w-32 bg-gold-leaf opacity-60 animate-pulse" />
-        <span className="font-mono text-caption text-mist tracking-luxury uppercase">
+        <div className="bg-gold-leaf h-px w-32 animate-pulse opacity-60" />
+        <span className="text-caption text-mist tracking-luxury font-mono uppercase">
           Loading
         </span>
       </div>
