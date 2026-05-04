@@ -20,9 +20,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="flex flex-1 flex-col p-8">
         <div className="mb-6 flex items-center justify-between">
-          <span className="text-caption text-racing-green-lit font-mono tracking-wide">
+          <time
+            dateTime={String(project.year)}
+            className="text-caption text-racing-green-lit font-mono tracking-wide tabular-nums"
+          >
             {project.year}
-          </span>
+          </time>
           <div className="flex items-center gap-3">
             {project.repoHref && (
               <a

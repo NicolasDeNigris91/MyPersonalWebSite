@@ -5,6 +5,8 @@ import { siteConfig } from '@/data/site';
 import { JsonLd, personSchema, websiteSchema } from '@/components/seo/JsonLd';
 import { WebVitals } from '@/components/WebVitals';
 import { MotionProvider } from '@/components/MotionProvider';
+import { BackToTop } from '@/components/BackToTop';
+import { ConsoleSignature } from '@/components/ConsoleSignature';
 import './globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -122,7 +124,9 @@ export default async function RootLayout({
           schema={websiteSchema(siteConfig, siteUrl)}
         />
         <WebVitals />
+        <ConsoleSignature />
         <MotionProvider>{children}</MotionProvider>
+        <BackToTop />
       </body>
     </html>
   );

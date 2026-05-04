@@ -6,6 +6,8 @@ import { Menu, X } from 'lucide-react';
 import { siteConfig } from '@/data/site';
 import { EASE_STANDARD } from '@/lib/motion';
 import { CopyEmailLink } from './CopyEmailLink';
+import { Monogram } from './Monogram';
+import { NavLink } from './NavLink';
 
 const navVariants: Variants = {
   hidden: { opacity: 0, y: -16 },
@@ -132,33 +134,22 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 md:px-16 lg:px-24">
         <a
           href="#"
-          aria-label={`${siteConfig.name} — início`}
-          className="font-display text-pearl hover:text-gold-leaf focus-visible:outline-platinum text-lg tracking-wide transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
+          aria-label={`${siteConfig.name}, início`}
+          className="text-pearl hover:text-gold-leaf focus-visible:outline-platinum inline-flex items-center transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
         >
-          {siteConfig.name
-            .split(' ')
-            .map((word) => word[0])
-            .join('')}
+          <Monogram size={32} />
         </a>
 
         <div className="hidden items-center gap-10 md:flex">
-          {navLinks.map((link) => {
-            const isActive = activeId === link.id;
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                aria-current={isActive ? 'location' : undefined}
-                className={`text-caption tracking-luxury focus-visible:outline-platinum relative font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${isActive ? 'text-pearl' : 'text-chrome hover:text-pearl'}`}
-              >
-                {link.label}
-                <span
-                  aria-hidden="true"
-                  className={`bg-gold-leaf absolute -bottom-1 left-0 h-px transition-[width] duration-300 ${isActive ? 'w-full' : 'w-0'}`}
-                />
-              </a>
-            );
-          })}
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.href}
+              href={link.href}
+              active={activeId === link.id}
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </div>
 
         <div className="flex items-center gap-4">
@@ -191,11 +182,8 @@ export function Navbar() {
           className="bg-obsidian fixed inset-0 z-50 flex flex-col"
         >
           <div className="border-mist/30 flex items-center justify-between border-b px-8 py-5">
-            <span className="font-display text-pearl text-lg tracking-wide">
-              {siteConfig.name
-                .split(' ')
-                .map((word) => word[0])
-                .join('')}
+            <span className="text-pearl inline-flex items-center">
+              <Monogram size={28} />
             </span>
             <button
               type="button"

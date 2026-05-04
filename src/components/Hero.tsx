@@ -6,6 +6,7 @@ import { ArrowDown } from 'lucide-react';
 import { siteConfig } from '@/data/site';
 import { meBlurDataURL } from '@/lib/blur';
 import { EASE_STANDARD, staggerContainer } from '@/lib/motion';
+import { MagneticCTA } from './MagneticCTA';
 
 const fadeSlideUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -76,12 +77,12 @@ export function Hero() {
             variants={fadeSlideUp}
             className="flex items-center gap-8"
           >
-            <a
+            <MagneticCTA
               href="#projects"
-              className="text-caption tracking-luxury border-platinum text-platinum hover:bg-platinum hover:text-obsidian focus-visible:outline-platinum border px-8 py-3 font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="text-caption tracking-luxury border-platinum text-platinum hover:bg-platinum hover:text-obsidian focus-visible:outline-platinum inline-block border px-8 py-3 font-sans uppercase transition-colors duration-300 will-change-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             >
               View Work
-            </a>
+            </MagneticCTA>
             <a
               href="#contact"
               className="text-caption tracking-luxury text-chrome hover:text-pearl font-sans uppercase transition-colors duration-300"

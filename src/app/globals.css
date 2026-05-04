@@ -59,6 +59,54 @@
     background-color: var(--color-obsidian);
     color-scheme: dark;
     scroll-padding-top: 5rem;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-feature-settings:
+      'kern' 1,
+      'liga' 1,
+      'calt' 1;
+  }
+
+  /* Cormorant has true small caps and old-style figures; opt in where they
+     belong so display text reads as set, not faked. */
+  .font-display {
+    font-feature-settings:
+      'kern' 1,
+      'liga' 1,
+      'dlig' 1,
+      'onum' 1;
+  }
+
+  /* Years, metrics and any aligned columns of digits should sit on a uniform
+     advance so they do not shimmer when adjacent rows update. */
+  .tabular-nums,
+  time,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  /* Real small caps for caption-style mono labels with the .smallcaps class. */
+  .smallcaps {
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.08em;
+  }
+
+  /* First-letter drop cap used in long-form prose (case studies). Falls back
+     gracefully when the element has no first character. */
+  .dropcap::first-letter {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--color-gold-leaf);
+    float: left;
+    font-size: 4.5em;
+    line-height: 0.85;
+    margin: 0.05em 0.12em 0 -0.05em;
   }
 
   @media (prefers-reduced-motion: no-preference) {
