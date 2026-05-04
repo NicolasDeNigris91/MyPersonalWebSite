@@ -10,9 +10,6 @@ test.describe('case study', () => {
       'Portfolio Pessoal',
     );
     await expect(
-      page.getByRole('heading', { level: 2, name: /problema/i }),
-    ).toBeVisible();
-    await expect(
       page.getByRole('heading', { level: 2, name: /decisões/i }),
     ).toBeVisible();
     await expect(

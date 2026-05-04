@@ -32,7 +32,6 @@ export interface CaseStudy {
   href?: string;
   repoHref?: string;
   intro: string;
-  problem: string;
   decisions: CaseStudySection[];
   tradeoffs: CaseStudySection[];
   pullQuote: PullQuote;

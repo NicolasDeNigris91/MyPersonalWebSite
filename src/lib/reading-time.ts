@@ -8,9 +8,9 @@ function wordsIn(text: string): number {
 
 /**
  * Rough reading time estimate for a case study, computed from the prose
- * fields (intro, problem, decisions, tradeoffs, closing, pull quote).
- * Diagram captions and code-like content are not counted because they are
- * scanned rather than read.
+ * fields (intro, decisions, tradeoffs, closing, pull quote). Diagram
+ * captions and code-like content are not counted because they are scanned
+ * rather than read.
  *
  * Returns whole minutes, never less than 1 - if the case study has any
  * prose at all, the reader spends at least a minute on it.
@@ -18,7 +18,6 @@ function wordsIn(text: string): number {
 export function estimateReadingMinutes(study: CaseStudy): number {
   const wordCount =
     wordsIn(study.intro) +
-    wordsIn(study.problem) +
     wordsIn(study.closing) +
     wordsIn(study.pullQuote.body) +
     study.decisions.reduce(

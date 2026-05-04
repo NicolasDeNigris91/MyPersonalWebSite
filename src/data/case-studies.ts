@@ -20,8 +20,6 @@ export const caseStudiesData: CaseStudy[] = [
     repoHref: 'https://github.com/NicolasDeNigris91/Public_MyPersonalWebSite',
     intro:
       'Reescrever do zero o portfolio para parecer com a peça que o conteúdo descreve: editorial impresso, sóbrio, com craft à mostra em cada hairline gold-leaf e cada métrica de Lighthouse.',
-    problem:
-      'O portfolio tradicional de engenharia tende a parecer template: sans-serif neutra, hero com gradiente, cards de projetos sem hierarquia. Eu queria um site que falasse sobre dez anos em joalharia tanto quanto sobre Postgres, e que sustentasse esse tom até nas microinterações.',
     decisions: [
       {
         label: 'Tipografia como design system',
@@ -93,8 +91,6 @@ export const caseStudiesData: CaseStudy[] = [
     repoHref: 'https://github.com/NicolasDeNigris91/Public_Pg2MongoCdC',
     intro:
       'Migrar de Postgres para MongoDB sem janela de manutenção, sem perder evento, sem duplicar evento, mesmo com o sink caindo no meio da carga.',
-    problem:
-      'A abordagem ingênua é parar o Postgres, dumpar, importar no Mongo, religar a aplicação. Isso pede uma janela de horas e zero tolerância a erro humano. A abordagem correta é CDC: Debezium lê o WAL, transforma e propaga em tempo real, com a aplicação escrevendo só no Postgres durante a transição e migrando o ponto de leitura por feature flag depois que o lag for zero.',
     decisions: [
       {
         label: 'Debezium como leitor do WAL',
@@ -148,8 +144,6 @@ export const caseStudiesData: CaseStudy[] = [
     repoHref: 'https://github.com/NicolasDeNigris91/Public_MagicProject',
     intro:
       'Reproduzir o sentimento de jogar Magic com a mesma fluidez por teclado e leitor de tela que se tem com mouse, tratando a descrição acessível de cada carta como dado de primeira classe.',
-    problem:
-      'A maioria das implementações digitais de TCG presume mouse e visão. Cartas viram imagens com tooltip; combate vira drag-and-drop. Para um jogador cego ou para alguém que não pode usar mouse, a interface deixa de ser um jogo e vira um obstáculo.',
     decisions: [
       {
         label: 'Engine de regras desacoplada da UI',
@@ -205,8 +199,6 @@ export const caseStudiesData: CaseStudy[] = [
     repoHref: 'https://github.com/NicolasDeNigris91/Public_FATHOM',
     intro:
       'Trilha estruturada de iniciante real até Staff/Principal Engineer com 66 módulos densos, cinco capstones encadeados sobre o mesmo produto e portões de avaliação reais entre estágios.',
-    problem:
-      'A maior parte do material para juniores ensina syntax; a maior parte para seniores presume contexto que ninguém ensinou. O caminho do meio é caótico: tutoriais isolados que não compõem uma prática.',
     decisions: [
       {
         label: 'Conteúdo em Markdown sob CC BY-NC 4.0',
@@ -260,8 +252,6 @@ export const caseStudiesData: CaseStudy[] = [
     repoHref: 'https://github.com/NicolasDeNigris91/Public_Roguelike',
     intro:
       'Roguelike por turnos com cinco atos, trinta andares e dois finais possíveis dependendo do que o jogador decide carregar até o boss. Servido no navegador via WebAssembly, atrás de Caddy com cross-origin isolation.',
-    problem:
-      'Godot exporta para Web, mas o suporte a SharedArrayBuffer (que a thread principal precisa para multithread) exige cross-origin isolation. Sem os headers COEP e COOP corretos no servidor, o jogo não inicializa, ou inicializa numa versão degradada.',
     decisions: [
       {
         label: 'Caddy como reverse proxy com headers de isolation',
@@ -312,8 +302,6 @@ export const caseStudiesData: CaseStudy[] = [
       'https://github.com/NicolasDeNigris91/Public_AccessibilityProject',
     intro:
       'O usuário cola uma URL e a ferramenta roda Puppeteer com axe-core num worker em background, agrupa as violações por severidade e devolve um relatório navegável. Monorepo com API em Express, worker, dashboard em Next.js, MongoDB e Redis em containers.',
-    problem:
-      'Auditar a11y por linha de comando funciona para quem já sabe ler o relatório. Para times de produto a barreira de entrada precisa ser uma URL e um botão. E precisa rodar fora da máquina do desenvolvedor para que o resultado seja arquivável e comparável entre runs.',
     decisions: [
       {
         label: 'Worker desacoplado da API via fila',

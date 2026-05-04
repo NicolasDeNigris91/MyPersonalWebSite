@@ -7,7 +7,7 @@
  *
  * Catches:
  * - Case study slug collisions and missing referenced project ids.
- * - Empty or trivially short prose fields (intro, problem, closing).
+ * - Empty or trivially short prose fields (intro, closing).
  * - Decisions/tradeoffs lists with fewer than two entries.
  * - Diagram kind referenced from a case study but missing from the
  *   ArchitectureDiagram switch (validated against a fixed list here).
@@ -94,7 +94,7 @@ for (const kind of diagramKinds) {
   }
 }
 
-// Em-dashes in case study source (catches them in title, intro, problem,
+// Em-dashes in case study source (catches them in title, intro,
 // decisions, tradeoffs, closing, pull quote - any string literal).
 if (caseStudiesSrc.includes('—')) {
   fail(

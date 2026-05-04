@@ -191,15 +191,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </div>
         </header>
 
-        <section className="mb-16">
-          <h2 className="text-caption text-racing-green-lit tracking-luxury mb-4 font-mono uppercase">
-            Problema
-          </h2>
-          <p className="text-body-lg text-chrome font-sans leading-relaxed">
-            {study.problem}
-          </p>
-        </section>
-
         <ArchitectureDiagram kind={study.diagram} />
 
         <section className="mb-16">
