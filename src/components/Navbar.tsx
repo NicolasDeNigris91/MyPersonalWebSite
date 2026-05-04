@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, type Variants } from 'framer-motion';
+import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { siteConfig } from '@/data/site';
 import { EASE_STANDARD } from '@/lib/motion';
@@ -132,13 +133,13 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5 md:px-16 lg:px-24">
-        <a
-          href="#"
+        <Link
+          href="/"
           aria-label={`${siteConfig.name}, início`}
           className="text-pearl hover:text-gold-leaf focus-visible:outline-platinum inline-flex items-center transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4"
         >
           <Monogram size={32} />
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
