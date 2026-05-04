@@ -27,6 +27,50 @@ const eslintConfig = defineConfig([
       'jsx-a11y/no-aria-hidden-on-focusable': 'error',
     },
   },
+  // Architecture boundaries: data and types are pure; they cannot import
+  // from React-tree code (components, app routes, lib/analytics, etc.).
+  // Catches accidental coupling early. The list grows as the codebase does.
+  {
+    files: ['src/data/**/*.{ts,tsx}', 'src/types/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components/*', '@/app/*'],
+              message:
+                'src/data and src/types must stay pure: no React-tree imports.',
+            },
+            {
+              group: ['react', 'react-dom', 'next/*', 'framer-motion'],
+              message:
+                'src/data and src/types must stay pure: no React/Next/runtime UI imports.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  // Library code (src/lib/*) may depend on data/types but not on
+  // components or app routes. Keeps the call graph honest.
+  {
+    files: ['src/lib/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components/*', '@/app/*'],
+              message:
+                'src/lib must not import from components or app routes; it is a leaf.',
+            },
+          ],
+        },
+      ],
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
