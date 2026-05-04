@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { headers } from 'next/headers';
-import { ExternalLink, GitBranch, ArrowLeft } from 'lucide-react';
+import { ExternalLink, GitBranch, ArrowLeft, Clock } from 'lucide-react';
 import { caseStudiesData, findCaseStudy } from '@/data/case-studies';
 import { siteConfig } from '@/data/site';
 import { ArchitectureDiagram } from '@/components/case-studies/ArchitectureDiagram';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { estimateReadingMinutes } from '@/lib/reading-time';
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nicolaspilegidenigris.dev';
@@ -48,6 +49,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const headerList = await headers();
   const nonce = headerList.get('x-nonce') ?? undefined;
 
+  const readingMinutes = estimateReadingMinutes(study);
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -62,6 +65,32 @@ export default async function CaseStudyPage({ params }: PageProps) {
     },
     keywords: study.stack.join(', '),
     url: `${siteUrl}/projects/${study.slug}`,
+    timeRequired: `PT${readingMinutes}M`,
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Início',
+        item: siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Projetos',
+        item: `${siteUrl}/#projects`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: study.title,
+        item: `${siteUrl}/projects/${study.slug}`,
+      },
+    ],
   };
 
   return (
@@ -73,6 +102,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
         id={`ld-case-${study.slug}`}
         nonce={nonce}
         schema={articleSchema}
+      />
+      <JsonLd
+        id={`ld-breadcrumbs-${study.slug}`}
+        nonce={nonce}
+        schema={breadcrumbSchema}
       />
 
       <div className="bg-mist/30 absolute inset-y-32 left-8 w-px md:left-16 lg:left-24" />
@@ -87,7 +121,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </Link>
 
         <header className="mb-16">
-          <div className="mb-6 flex items-center gap-4">
+          <div className="mb-6 flex flex-wrap items-center gap-4">
             <p className="text-caption text-racing-green-lit tracking-luxury font-mono uppercase">
               Case study
             </p>
@@ -98,6 +132,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
             >
               {study.year}
             </time>
+            <span className="bg-mist h-px w-8" />
+            <span className="text-caption text-mist inline-flex items-center gap-1 font-mono tracking-wide tabular-nums">
+              <Clock size={11} strokeWidth={1} aria-hidden="true" />
+              {readingMinutes} min de leitura
+            </span>
           </div>
 
           <h1
