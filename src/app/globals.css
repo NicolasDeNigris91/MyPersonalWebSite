@@ -135,4 +135,96 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Print stylesheet. Keeps the editorial structure while flipping to a
+     light page for ink, dropping ornaments that do not survive print
+     (gold-leaf hairlines that read as ghost lines, the back-to-top
+     button, navbar, scroll indicator), and forcing colour-correct text
+     so the dropcap and pull quote read on white. */
+  @media print {
+    html,
+    body {
+      background-color: #ffffff !important;
+      color: #1a1a1a !important;
+    }
+
+    /* Strip layout chrome that has no value in print. */
+    nav[aria-label='Primary'],
+    [aria-label='Voltar ao topo'],
+    button[aria-label='Abrir menu'],
+    [aria-hidden='true'] {
+      display: none !important;
+    }
+
+    main {
+      padding: 0 !important;
+    }
+
+    article {
+      max-width: 100% !important;
+      padding: 0 !important;
+    }
+
+    /* All headings and copy go monochrome on white. */
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li,
+    span,
+    blockquote,
+    figcaption,
+    dt,
+    dd,
+    time {
+      color: #1a1a1a !important;
+    }
+
+    /* Hairline rules and accents in pure black so they actually print. */
+    .bg-gold-leaf,
+    .bg-mist,
+    .bg-mist\/30,
+    .bg-mist\/40 {
+      background-color: #1a1a1a !important;
+    }
+
+    /* Drop cap stays as the visual signature but in black ink. */
+    .dropcap::first-letter {
+      color: #1a1a1a !important;
+    }
+
+    /* Underlines on links so a printed reader can copy the URL. */
+    a[href^='http']::after {
+      content: ' (' attr(href) ')';
+      font-size: 0.75em;
+      color: #555555;
+    }
+
+    /* Avoid splitting a section heading from its first paragraph. */
+    h1,
+    h2,
+    h3 {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    /* Avoid splitting blockquote pull-quotes mid-page. */
+    blockquote,
+    figure {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    /* Image optimisation: print full-quality, no grayscale filter. */
+    img {
+      filter: none !important;
+      -webkit-filter: none !important;
+    }
+
+    /* Page setup: A4-ish margins so editorial breathing room survives. */
+    @page {
+      margin: 18mm;
+    }
+  }
 }
