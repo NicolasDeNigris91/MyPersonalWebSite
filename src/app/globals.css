@@ -113,6 +113,16 @@
     html {
       scroll-behavior: smooth;
     }
+
+    /* Browser-driven view transitions on same-document navigation. The
+       shared element is the project title: card heading on the home,
+       page heading on /projects/[slug]. Both carry the same
+       view-transition-name so the browser morphs between them. */
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation-duration: 220ms;
+      animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

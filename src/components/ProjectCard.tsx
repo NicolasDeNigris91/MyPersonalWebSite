@@ -70,7 +70,14 @@ export function ProjectCard({ project, caseStudySlug }: ProjectCardProps) {
           </div>
         </div>
 
-        <h3 className="font-display text-display-md text-pearl group-hover:text-gold-leaf mb-1 transition-colors duration-300">
+        <h3
+          className="font-display text-display-md text-pearl group-hover:text-gold-leaf mb-1 transition-colors duration-300"
+          style={
+            caseStudySlug
+              ? { viewTransitionName: `project-title-${caseStudySlug}` }
+              : undefined
+          }
+        >
           {caseStudySlug ? (
             <Link
               href={`/projects/${caseStudySlug}`}

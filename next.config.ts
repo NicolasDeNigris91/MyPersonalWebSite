@@ -27,6 +27,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   compress: true,
+  experimental: {
+    viewTransition: true,
+  },
   async headers() {
     return [
       {

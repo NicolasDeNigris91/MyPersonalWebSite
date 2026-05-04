@@ -100,7 +100,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </time>
           </div>
 
-          <h1 className="font-display text-display-xl text-pearl leading-none tracking-tight">
+          <h1
+            className="font-display text-display-xl text-pearl leading-none tracking-tight"
+            style={{ viewTransitionName: `project-title-${study.slug}` }}
+          >
             {study.title}
           </h1>
           <p className="text-body-lg text-chrome mt-4 font-sans leading-relaxed">
