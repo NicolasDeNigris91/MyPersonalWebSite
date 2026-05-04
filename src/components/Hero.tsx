@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import { siteConfig } from '@/data/site';
+import { meBlurDataURL } from '@/lib/blur';
 import { EASE_STANDARD, staggerContainer } from '@/lib/motion';
 
 const fadeSlideUp: Variants = {
@@ -99,6 +100,8 @@ export function Hero() {
             fill
             priority
             sizes="(min-width: 1024px) 360px, 220px"
+            placeholder="blur"
+            blurDataURL={meBlurDataURL}
             className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-[600ms] ease-in-out"
           />
           <div className="absolute -bottom-px -left-px w-12 h-px bg-gold-leaf" />
