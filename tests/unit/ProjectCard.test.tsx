@@ -53,9 +53,10 @@ describe('ProjectCard', () => {
 
   it('renders the case study link when caseStudySlug is provided', () => {
     render(<ProjectCard project={baseProject} caseStudySlug="my-slug" />);
-    const caseLink = screen.getByLabelText(/ler case study de test project/i);
-    expect(caseLink).toHaveAttribute('href', '/projects/my-slug');
-    // Title becomes a link to the same slug
+    // The title is the single entry point to the case study to avoid the
+    // "identical links have the same purpose" Lighthouse Best Practices
+    // warning that fired when both an icon link and the title pointed at
+    // the same URL.
     const titleLink = screen.getByRole('link', { name: 'Test Project' });
     expect(titleLink).toHaveAttribute('href', '/projects/my-slug');
   });

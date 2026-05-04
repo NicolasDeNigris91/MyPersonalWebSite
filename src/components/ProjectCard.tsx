@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ExternalLink, GitBranch, BookOpen } from 'lucide-react';
+import { ExternalLink, GitBranch } from 'lucide-react';
 import { EASE_STANDARD } from '@/lib/motion';
 import { track } from '@/lib/analytics';
 import type { Project } from '@/types';
@@ -30,15 +30,6 @@ export function ProjectCard({ project, caseStudySlug }: ProjectCardProps) {
             {project.year}
           </time>
           <div className="flex items-center gap-3">
-            {caseStudySlug && (
-              <Link
-                href={`/projects/${caseStudySlug}`}
-                className="text-chrome hover:text-gold-leaf focus-visible:outline-platinum transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                aria-label={`Ler case study de ${project.title}`}
-              >
-                <BookOpen size={16} strokeWidth={1} />
-              </Link>
-            )}
             {project.repoHref && (
               <a
                 href={project.repoHref}

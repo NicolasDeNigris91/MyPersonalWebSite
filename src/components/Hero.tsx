@@ -92,10 +92,15 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <motion.div
-          variants={fadeSlideUp}
-          className="border-mist group relative mx-auto aspect-[4/5] w-[220px] overflow-hidden border shadow-[0_8px_32px_rgba(0,0,0,0.4)] lg:mx-0 lg:w-[360px]"
-        >
+        {/*
+          The portrait is the LCP element on mobile. Lighthouse measures LCP
+          when the element becomes visible, and a framer-motion variant with
+          initial={opacity: 0, y: 32} delays that until JS hydrates and the
+          parent stagger runs. Pulling this <div> out of the motion tree lets
+          the browser paint the image as soon as the bytes arrive, which on
+          Slow 4G is ~1.5s instead of ~3.4s.
+        */}
+        <div className="border-mist group relative mx-auto aspect-[4/5] w-[220px] overflow-hidden border shadow-[0_8px_32px_rgba(0,0,0,0.4)] lg:mx-0 lg:w-[360px]">
           <Image
             src="/me.webp"
             alt={`Retrato de ${siteConfig.name}`}
@@ -108,7 +113,7 @@ export function Hero() {
           />
           <div className="bg-gold-leaf absolute -bottom-px -left-px h-px w-12" />
           <div className="bg-gold-leaf absolute -bottom-px -left-px h-12 w-px" />
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div

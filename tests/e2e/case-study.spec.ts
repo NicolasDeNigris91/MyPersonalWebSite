@@ -45,10 +45,7 @@ test.describe('case study', () => {
     page,
   }) => {
     await page.goto('/');
-    await page
-      .getByRole('link', { name: /ler case study de portfolio pessoal/i })
-      .first()
-      .click();
+    await page.getByRole('link', { name: 'Portfolio Pessoal' }).first().click();
     await expect(page).toHaveURL(/\/projects\/portfolio\/?$/);
     await expect(page.getByRole('heading', { level: 1 })).toContainText(
       'Portfolio Pessoal',

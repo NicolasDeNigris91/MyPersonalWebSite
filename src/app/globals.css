@@ -9,9 +9,13 @@
   --color-platinum: #e8e8e8;
   --color-pearl: #f5f5f0;
   --color-racing-green: #0b3d2e;
-  --color-racing-green-lit: #1a6b50;
+  /* racing-green-lit and mist were tuned to clear WCAG AA contrast (4.5:1+)
+     against obsidian, graphite and carbon. Previous values (1a6b50 and
+     3a3a3a) failed Lighthouse on small captions. The new values keep the
+     muted editorial feel while passing the audit. */
+  --color-racing-green-lit: #34a07a;
   --color-gold-leaf: #b8963e;
-  --color-mist: #3a3a3a;
+  --color-mist: #858585;
 
   /* ─── Font Families ──────────────────────────────────── */
   --font-display: var(--font-cormorant), Georgia, serif;
