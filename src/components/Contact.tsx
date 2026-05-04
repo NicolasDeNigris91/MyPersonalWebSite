@@ -28,10 +28,10 @@ export function Contact() {
         <motion.div variants={fadeUp} className="mb-16">
           <div className="bg-gold-leaf mb-6 h-px w-16" />
           <h2 className="font-display text-display-lg text-pearl">
-            Let&rsquo;s Connect
+            Vamos conversar
           </h2>
           <p className="text-caption text-chrome tracking-luxury mt-3 font-mono uppercase">
-            Get in Touch
+            Falar comigo
           </p>
         </motion.div>
 
@@ -43,7 +43,7 @@ export function Contact() {
             </p>
             <CopyEmailLink className="text-caption tracking-luxury border-platinum text-platinum hover:bg-platinum hover:text-obsidian focus-visible:outline-platinum inline-flex items-center gap-3 border px-8 py-3 font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
               <Mail size={14} strokeWidth={1} />
-              Send Email
+              Enviar email
             </CopyEmailLink>
           </motion.div>
 
@@ -59,7 +59,7 @@ export function Contact() {
 
             <div>
               <h3 className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
-                Phone
+                Telefone
               </h3>
               <a
                 href={siteConfig.phoneLink}
@@ -72,7 +72,7 @@ export function Contact() {
 
             <div>
               <h3 className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
-                Location
+                Localização
               </h3>
               <p className="text-body text-chrome flex items-center gap-2 font-sans">
                 <MapPin size={14} strokeWidth={1} className="text-mist" />
@@ -82,7 +82,7 @@ export function Contact() {
 
             <div>
               <h3 className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
-                Social
+                Redes
               </h3>
               <div className="flex flex-col gap-2">
                 <a

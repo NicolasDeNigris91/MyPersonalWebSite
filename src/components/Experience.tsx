@@ -42,7 +42,7 @@ function ExperienceEntryCard({ entry }: EntryProps) {
                 className="text-racing-green-lit"
               />
               <span className="text-caption text-racing-green-lit font-mono tracking-wide uppercase">
-                {entry.type === 'education' ? 'Education' : 'Experience'}
+                {entry.type === 'education' ? 'Formação' : 'Experiência'}
               </span>
             </div>
             <h3 className="font-display text-display-md text-pearl">
@@ -112,10 +112,10 @@ export function Experience() {
           className="mb-16"
         >
           <p className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
-            Background
+            Trajetória
           </p>
           <h2 className="font-display text-display-lg text-pearl">
-            Experience &amp; Education
+            Experiência e formação
           </h2>
           <div className="bg-gold-leaf mt-4 h-px w-24" />
         </motion.div>
@@ -123,7 +123,7 @@ export function Experience() {
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
             <p className="text-caption text-chrome tracking-luxury mb-8 font-mono uppercase">
-              Work History
+              Histórico
             </p>
             <motion.div
               variants={staggerContainer(0.12)}
@@ -139,7 +139,7 @@ export function Experience() {
 
           <div>
             <p className="text-caption text-chrome tracking-luxury mb-8 font-mono uppercase">
-              Education
+              Formação
             </p>
             <motion.div
               variants={staggerContainer(0.12)}

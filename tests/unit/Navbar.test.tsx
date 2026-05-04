@@ -8,11 +8,11 @@ describe('Navbar', () => {
     render(<Navbar />);
     const nav = screen.getByRole('navigation', { name: /primary/i });
     expect(nav).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Projects' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Projetos' })).toHaveAttribute(
       'href',
       '#projects',
     );
-    expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Contato' })).toHaveAttribute(
       'href',
       '#contact',
     );

@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
 
 export const skillsData: Skill[] = [
   {
-    category: 'Languages',
+    category: 'Linguagens',
     items: ['Python', 'Java', 'TypeScript', 'JavaScript', 'Go', 'C#'],
   },
   {
@@ -28,7 +28,7 @@ export const skillsData: Skill[] = [
     ],
   },
   {
-    category: 'Infrastructure',
+    category: 'Infraestrutura',
     items: [
       'Docker',
       'Kubernetes',
@@ -39,7 +39,7 @@ export const skillsData: Skill[] = [
     ],
   },
   {
-    category: 'Data & Tools',
+    category: 'Dados e ferramentas',
     items: ['MongoDB', 'Qlikview', 'Qlik Replicate', 'Agile Scrum'],
   },
 ];

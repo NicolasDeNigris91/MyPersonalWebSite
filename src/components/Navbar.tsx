@@ -19,11 +19,11 @@ const navVariants: Variants = {
 };
 
 const navLinks = [
-  { label: 'Courses', href: '#courses', id: 'courses' },
-  { label: 'Projects', href: '#projects', id: 'projects' },
-  { label: 'Experience', href: '#experience', id: 'experience' },
+  { label: 'Cursos', href: '#courses', id: 'courses' },
+  { label: 'Projetos', href: '#projects', id: 'projects' },
+  { label: 'Experiência', href: '#experience', id: 'experience' },
   { label: 'Skills', href: '#skills', id: 'skills' },
-  { label: 'Contact', href: '#contact', id: 'contact' },
+  { label: 'Contato', href: '#contact', id: 'contact' },
 ];
 
 const FOCUSABLE =
@@ -154,7 +154,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-4">
           <CopyEmailLink className="text-caption tracking-luxury border-mist text-chrome hover:border-platinum hover:text-platinum focus-visible:outline-platinum hidden border px-5 py-2 font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:inline-block">
-            Say Hello
+            Diga olá
           </CopyEmailLink>
 
           <button
@@ -217,7 +217,7 @@ export function Navbar() {
 
           <div className="border-mist/30 border-t px-8 py-8">
             <CopyEmailLink className="text-caption tracking-luxury border-mist text-chrome hover:border-platinum hover:text-platinum focus-visible:outline-platinum block w-full border px-5 py-3 text-center font-sans uppercase transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
-              Say Hello
+              Diga olá
             </CopyEmailLink>
           </div>
         </div>

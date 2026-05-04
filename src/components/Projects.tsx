@@ -29,9 +29,9 @@ export function Projects() {
           className="mb-16"
         >
           <p className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
-            Selected Work
+            Trabalhos selecionados
           </p>
-          <h2 className="font-display text-display-lg text-pearl">Projects</h2>
+          <h2 className="font-display text-display-lg text-pearl">Projetos</h2>
           <div className="bg-gold-leaf mt-4 h-px w-24" />
         </motion.div>
 

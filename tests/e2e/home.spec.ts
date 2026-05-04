@@ -57,10 +57,12 @@ test.describe('home', () => {
     });
     await page.goto('/');
 
-    const link = page.getByRole('link', { name: /click copies it/i }).first();
+    const link = page
+      .getByRole('link', { name: /clique para copiar/i })
+      .first();
     await link.click();
 
-    await expect(page.getByText(/email copied/i)).toBeVisible();
+    await expect(page.getByText(/email copiado/i)).toBeVisible();
 
     const clipboard = await page.evaluate(() => navigator.clipboard.readText());
     expect(clipboard).toBe('nicolas.denigris91@icloud.com');
@@ -93,7 +95,7 @@ test.describe('home', () => {
     const dialog = page.getByRole('dialog', { name: 'Menu de navegação' });
     await expect(dialog).toBeVisible();
 
-    await expect(dialog.getByRole('link', { name: 'Projects' })).toBeVisible();
+    await expect(dialog.getByRole('link', { name: 'Projetos' })).toBeVisible();
 
     await page.keyboard.press('Escape');
     await expect(dialog).toBeHidden();

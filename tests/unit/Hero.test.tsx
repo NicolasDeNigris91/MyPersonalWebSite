@@ -12,8 +12,8 @@ describe('Hero', () => {
 
   it('renders both CTAs pointing to projects and contact', () => {
     render(<Hero />);
-    const work = screen.getByRole('link', { name: /view work/i });
-    const contact = screen.getByRole('link', { name: /get in touch/i });
+    const work = screen.getByRole('link', { name: /ver projetos/i });
+    const contact = screen.getByRole('link', { name: /falar comigo/i });
     expect(work).toHaveAttribute('href', '#projects');
     expect(contact).toHaveAttribute('href', '#contact');
   });

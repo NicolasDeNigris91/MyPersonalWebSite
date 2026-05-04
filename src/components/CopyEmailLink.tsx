@@ -51,7 +51,7 @@ export function CopyEmailLink({
         onClick={handleClick}
         aria-label={
           ariaLabel ??
-          `Email ${siteConfig.email} (click copies it to your clipboard)`
+          `Email ${siteConfig.email}, clique para copiar para a área de transferência`
         }
         className={className}
       >
@@ -79,7 +79,7 @@ export function CopyEmailLink({
                   strokeWidth={1}
                   className="text-gold-leaf"
                 />
-                <span>Email copied</span>
+                <span>Email copiado</span>
               </motion.div>
             )}
           </AnimatePresence>,

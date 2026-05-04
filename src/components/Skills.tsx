@@ -25,7 +25,7 @@ export function Skills() {
           className="mb-16 flex flex-col"
         >
           <h2 className="font-display text-display-lg text-pearl">
-            Skills &amp; Tools
+            Skills e ferramentas
           </h2>
           <div className="bg-gold-leaf mt-6 h-px w-32" />
         </motion.div>

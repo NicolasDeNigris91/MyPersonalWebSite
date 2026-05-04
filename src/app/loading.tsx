@@ -9,7 +9,7 @@ export default function Loading() {
       <div className="flex flex-col items-center gap-6">
         <div className="bg-gold-leaf h-px w-32 animate-pulse opacity-60" />
         <span className="text-caption text-mist tracking-luxury font-mono uppercase">
-          Loading
+          Carregando
         </span>
       </div>
     </div>

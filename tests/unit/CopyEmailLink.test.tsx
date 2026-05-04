@@ -15,7 +15,7 @@ function installClipboard() {
 describe('CopyEmailLink', () => {
   it('renders a mailto link with the configured email', () => {
     render(<CopyEmailLink>Say Hello</CopyEmailLink>);
-    const link = screen.getByRole('link', { name: /click copies it/i });
+    const link = screen.getByRole('link', { name: /clique para copiar/i });
     expect(link).toHaveAttribute('href', `mailto:${siteConfig.email}`);
     expect(link).toHaveTextContent('Say Hello');
   });
@@ -24,12 +24,12 @@ describe('CopyEmailLink', () => {
     const writeText = installClipboard();
     render(<CopyEmailLink>Say Hello</CopyEmailLink>);
 
-    const link = screen.getByRole('link', { name: /click copies it/i });
+    const link = screen.getByRole('link', { name: /clique para copiar/i });
     fireEvent.click(link);
 
     expect(writeText).toHaveBeenCalledWith(siteConfig.email);
     await waitFor(() => {
-      expect(screen.getByRole('status')).toHaveTextContent(/email copied/i);
+      expect(screen.getByRole('status')).toHaveTextContent(/email copiado/i);
     });
   });
 
@@ -39,7 +39,7 @@ describe('CopyEmailLink', () => {
       value: undefined,
     });
     render(<CopyEmailLink>Say Hello</CopyEmailLink>);
-    const link = screen.getByRole('link', { name: /click copies it/i });
+    const link = screen.getByRole('link', { name: /clique para copiar/i });
     expect(() => fireEvent.click(link)).not.toThrow();
   });
 });

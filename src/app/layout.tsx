@@ -111,7 +111,7 @@ export default async function RootLayout({
           href="#main-content"
           className="focus:bg-racing-green focus:text-pearl focus:text-caption focus:tracking-luxury sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:font-sans focus:uppercase"
         >
-          Skip to content
+          Pular para o conteúdo
         </a>
         <JsonLd
           id="ld-person"

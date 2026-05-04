@@ -81,13 +81,13 @@ export function Hero() {
               href="#projects"
               className="text-caption tracking-luxury border-platinum text-platinum hover:bg-platinum hover:text-obsidian focus-visible:outline-platinum inline-block border px-8 py-3 font-sans uppercase transition-colors duration-300 will-change-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             >
-              View Work
+              Ver projetos
             </MagneticCTA>
             <a
               href="#contact"
               className="text-caption tracking-luxury text-chrome hover:text-pearl font-sans uppercase transition-colors duration-300"
             >
-              Get in Touch
+              Falar comigo
             </a>
           </motion.div>
         </div>
@@ -119,7 +119,7 @@ export function Hero() {
         className="absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
       >
         <span className="text-caption text-mist tracking-luxury font-mono uppercase">
-          Scroll
+          Role
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
