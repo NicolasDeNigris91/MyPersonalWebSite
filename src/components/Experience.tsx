@@ -1,19 +1,6 @@
-'use client';
-
-import { motion, type Variants } from 'framer-motion';
 import { Briefcase, GraduationCap, MapPin } from 'lucide-react';
 import { experienceData } from '@/data/experience';
-import { EASE_STANDARD, staggerContainer } from '@/lib/motion';
 import type { ExperienceEntry } from '@/types';
-
-const entryVariants: Variants = {
-  hidden: { opacity: 0, x: -24 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: EASE_STANDARD },
-  },
-};
 
 interface EntryProps {
   entry: ExperienceEntry;
@@ -23,10 +10,7 @@ function ExperienceEntryCard({ entry }: EntryProps) {
   const Icon = entry.type === 'education' ? GraduationCap : Briefcase;
 
   return (
-    <motion.article
-      variants={entryVariants}
-      className="group relative grid grid-cols-[1px_1fr] gap-8"
-    >
+    <article className="group relative grid grid-cols-[1px_1fr] gap-8">
       <div className="relative flex flex-col items-center">
         <div className="bg-mist w-px flex-1" />
         <div className="bg-racing-green-lit ring-obsidian absolute top-3 h-2 w-2 rounded-full ring-4" />
@@ -53,7 +37,7 @@ function ExperienceEntryCard({ entry }: EntryProps) {
             </p>
           </div>
           <div className="text-right">
-            <p className="text-caption text-chrome font-mono tracking-wide">
+            <p className="text-caption text-chrome font-mono tracking-wide tabular-nums">
               {entry.period}
             </p>
             <div className="mt-1 flex items-center justify-end gap-1">
@@ -93,10 +77,14 @@ function ExperienceEntryCard({ entry }: EntryProps) {
           </div>
         )}
       </div>
-    </motion.article>
+    </article>
   );
 }
 
+// Server component. The viewport-staggered fade-in moved from framer-motion
+// to plain server rendering; on a portfolio this size it is more honest to
+// show the content fully than to choreograph a parallax that nobody waits
+// to see.
 export function Experience() {
   const work = experienceData.filter((e) => e.type === 'work');
   const education = experienceData.filter((e) => e.type === 'education');
@@ -104,13 +92,7 @@ export function Experience() {
   return (
     <section id="experience" className="px-8 py-24 md:px-16 lg:px-24">
       <div className="mx-auto max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, ease: EASE_STANDARD }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <p className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
             Trajetória
           </p>
@@ -118,39 +100,29 @@ export function Experience() {
             Experiência e formação
           </h2>
           <div className="bg-gold-leaf mt-4 h-px w-24" />
-        </motion.div>
+        </div>
 
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
             <p className="text-caption text-chrome tracking-luxury mb-8 font-mono uppercase">
               Histórico
             </p>
-            <motion.div
-              variants={staggerContainer(0.12)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-            >
+            <div>
               {work.map((entry) => (
                 <ExperienceEntryCard key={entry.id} entry={entry} />
               ))}
-            </motion.div>
+            </div>
           </div>
 
           <div>
             <p className="text-caption text-chrome tracking-luxury mb-8 font-mono uppercase">
               Formação
             </p>
-            <motion.div
-              variants={staggerContainer(0.12)}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-            >
+            <div>
               {education.map((entry) => (
                 <ExperienceEntryCard key={entry.id} entry={entry} />
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

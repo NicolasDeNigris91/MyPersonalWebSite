@@ -1,31 +1,15 @@
-'use client';
-
-import { motion, type Variants } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { siteConfig } from '@/data/site';
-import { EASE_STANDARD, staggerContainer } from '@/lib/motion';
 import { CopyEmailLink } from './CopyEmailLink';
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE_STANDARD },
-  },
-};
-
+// Server component. The CopyEmailLink children remain client islands; the
+// surrounding shell is plain HTML so the section does not contribute to the
+// hydration tree.
 export function Contact() {
   return (
     <section id="contact" className="bg-graphite px-8 py-24 md:px-16 lg:px-24">
-      <motion.div
-        className="mx-auto max-w-5xl"
-        variants={staggerContainer(0.12)}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-80px' }}
-      >
-        <motion.div variants={fadeUp} className="mb-16">
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-16">
           <div className="bg-gold-leaf mb-6 h-px w-16" />
           <h2 className="font-display text-display-lg text-pearl">
             Vamos conversar
@@ -33,10 +17,10 @@ export function Contact() {
           <p className="text-caption text-chrome tracking-luxury mt-3 font-mono uppercase">
             Falar comigo
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-16 md:grid-cols-2">
-          <motion.div variants={fadeUp}>
+          <div>
             <p className="text-body-lg text-chrome mb-8 font-sans leading-relaxed">
               Disponível para novas oportunidades em desenvolvimento de
               software.
@@ -45,9 +29,9 @@ export function Contact() {
               <Mail size={14} strokeWidth={1} />
               Enviar email
             </CopyEmailLink>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeUp} className="space-y-8">
+          <div className="space-y-8">
             <div>
               <h3 className="text-caption text-racing-green-lit tracking-luxury mb-3 font-mono uppercase">
                 Email
@@ -103,9 +87,9 @@ export function Contact() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
