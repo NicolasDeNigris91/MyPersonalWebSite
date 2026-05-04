@@ -1,6 +1,11 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Inter, JetBrains_Mono } from 'next/font/google';
 import { siteConfig } from '@/data/site';
+import {
+  JsonLd,
+  personSchema,
+  websiteSchema,
+} from '@/components/seo/JsonLd';
 import './globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -79,9 +84,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export const viewport: Viewport = {
@@ -110,6 +112,8 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <JsonLd id="ld-person" schema={personSchema(siteConfig, siteUrl)} />
+        <JsonLd id="ld-website" schema={websiteSchema(siteConfig, siteUrl)} />
         {children}
       </body>
     </html>
