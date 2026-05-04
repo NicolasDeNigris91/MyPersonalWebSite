@@ -27,6 +27,10 @@ export default defineConfig({
         'src/components/Navbar.tsx',
         'src/components/ProjectCard.tsx',
         'src/components/CopyEmailLink.tsx',
+        'src/components/Footer.tsx',
+        'src/components/Monogram.tsx',
+        'src/components/NavLink.tsx',
+        'src/components/BackToTop.tsx',
       ],
       thresholds: {
         lines: 70,
