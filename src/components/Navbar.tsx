@@ -74,7 +74,7 @@ export function Navbar() {
 
   const closeDialog = useCallback(() => {
     setOpen(false);
-    requestAnimationFrame(() => triggerRef.current?.focus());
+    triggerRef.current?.focus();
   }, []);
 
   useEffect(() => {
