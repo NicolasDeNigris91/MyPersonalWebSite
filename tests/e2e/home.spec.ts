@@ -15,7 +15,6 @@ test.describe('home', () => {
     page,
   }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
-    await page.waitForLoadState('networkidle');
     await page.evaluate(() => document.fonts?.ready);
 
     // color-contrast is audited separately as a design pass — the editorial
